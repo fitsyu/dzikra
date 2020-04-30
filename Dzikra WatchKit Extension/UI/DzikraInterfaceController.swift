@@ -160,12 +160,15 @@ class DzikraInterfaceController: WKInterfaceController {
         cgContext.beginPath()
         
         cgContext.setStrokeColor(UIColor.lightGray.cgColor)
+        cgContext.setFillColor(UIColor.lightGray.cgColor)
         cgContext.setLineWidth(1)
         
         cgContext.move(to: CGPoint(x: contentFrame.maxX-0, y: 40))
         cgContext.addLine(to: CGPoint(x: contentFrame.maxX-25, y: 40))
         cgContext.addLine(to: CGPoint(x: contentFrame.maxX-35, y: 50))
         cgContext.strokePath()
+        
+        cgContext.fillEllipse(in: CGRect(x: contentFrame.maxX-38.5, y: 48.5, width: 5, height: 5))
     
         cgContext.move(to: CGPoint(x: contentFrame.minX+3, y: contentFrame.minY))
         cgContext.addLine(to: CGPoint(x: contentFrame.minX+3, y: contentFrame.midY - 30))
