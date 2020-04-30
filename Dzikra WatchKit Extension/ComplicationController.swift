@@ -38,22 +38,23 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         
         // The data to show up there
+        guard
+            let aSessionData = UserDefaults.standard.value(forKey: "session") as? Data,
+            let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
+        else { handler(nil); return }
+        
+        
         var currentValue: Int = 0
         var maxValue: Int?
         var color: UIColor?
-        if let aSessionData = UserDefaults.standard.value(forKey: "session") as? Data {
-            
-            if let aSession = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData) {
-                
-                currentValue = aSession.currentValue
-                if let limit = aSession.limit {
-                    maxValue = limit
-                }
-                
-                if let hex = aSession.color {
-                    color = UIColor(hex: hex)
-                }
-            }
+        
+        currentValue = session.currentValue
+        if let limit = session.limit {
+            maxValue = limit
+        }
+        
+        if let hex = session.color {
+            color = UIColor(hex: hex)
         }
         
         // Common complicaton setup
@@ -91,6 +92,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
             handler(entry)
+            
+        case .modularSmall:
+            let template = CLKComplicationTemplateModularSmallRingText()
+            template.textProvider = textProvider
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                     complicationTemplate: template)
+            handler(entry)
+
             
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallRingText()
