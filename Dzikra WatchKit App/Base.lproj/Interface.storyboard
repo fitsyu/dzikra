@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jy7-lN-aIt" pageOrientation="vertical">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Post Prayer Dzikr Interface Controller-->
+        <scene sceneID="G2M-4S-qHe">
+            <objects>
+                <controller id="fnu-YD-oMP" customClass="PostPrayerDzikrInterfaceController" customModule="Dzikra">
+                    <items>
+                        <table alignment="left" id="IHF-7X-cUV">
+                            <items>
+                                <tableRow identifier="RC1" id="6Jm-iu-2uZ" customClass="DzikrItemSetRowController" customModule="Dzikra">
+                                    <group key="rootItem" width="1" alignment="left" layout="overlap" id="FXc-eH-hyx">
+                                        <items>
+                                            <group width="0.69999999999999996" alignment="left" layout="vertical" id="lln-a4-0q3">
+                                                <items>
+                                                    <label width="1" alignment="left" text="Tasbih" id="6a3-Yd-bRH">
+                                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                                    </label>
+                                                    <label alignment="left" verticalAlignment="bottom" text="Shubhanallah" id="7v6-BW-tQ1">
+                                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label width="0.29999999999999999" alignment="right" verticalAlignment="center" text="0000" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="HBe-TM-6OA">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="countLabel" destination="HBe-TM-6OA" id="ud8-kl-5Sv"/>
+                                        <outlet property="subTitleLabel" destination="7v6-BW-tQ1" id="BGh-6p-uYT"/>
+                                        <outlet property="titleLabel" destination="6a3-Yd-bRH" id="3ba-Dh-vmc"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="IHF-7X-cUV" id="bCY-z4-viX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1240" y="-13"/>
+        </scene>
+        <!--Home Interface Controler-->
+        <scene sceneID="ARC-Yp-qMq">
+            <objects>
+                <controller id="Jy7-lN-aIt" customClass="HomeInterfaceControler" customModule="Dzikra">
+                    <items>
+                        <label alignment="left" text="Quick Dzikr" id="LA4-2A-FaX">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" height="37" alignment="left" spacing="3" id="mVP-Cb-7co">
+                            <items>
+                                <button width="0.29999999999999999" height="1" alignment="left" verticalAlignment="center" title="7" id="9dy-Rs-BAp">
+                                    <connections>
+                                        <action selector="quick7buttonTap" destination="Jy7-lN-aIt" id="BW8-QS-RE4"/>
+                                    </connections>
+                                </button>
+                                <button width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" title="33" id="qlT-vA-0lj">
+                                    <connections>
+                                        <action selector="quick33buttonTap" destination="Jy7-lN-aIt" id="7Dq-ne-eP9"/>
+                                    </connections>
+                                </button>
+                                <button width="0.40000000000000002" height="1" alignment="right" verticalAlignment="center" title="100" id="YNf-mv-BRw">
+                                    <connections>
+                                        <action selector="quick100buttonTap" destination="Jy7-lN-aIt" id="cww-gl-ZEx"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <separator alignment="left" id="jnp-7W-LUO">
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="Dzikr Set" id="x6s-PM-94f">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <button width="1" alignment="left" title="Setelah Sholat" id="LcG-PX-yTL">
+                            <connections>
+                                <segue destination="fnu-YD-oMP" kind="push" id="Fml-QW-HV8"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Harian" id="gRl-8D-37S">
+                            <connections>
+                                <segue destination="SuK-ul-Btz" kind="push" id="plk-Zu-9IM"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="QjO-sS-I6W">
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <button width="1" alignment="left" title="Custom " id="GfQ-Tc-I1L">
+                            <connections>
+                                <action selector="customDzikrButtonTap" destination="Jy7-lN-aIt" id="Hk6-am-w5n"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="812" y="245"/>
+        </scene>
+        <!--CustomLimit-->
+        <scene sceneID="xUL-XE-6kM">
+            <objects>
+                <controller identifier="CustomLimit" id="qeE-gc-G9S" customClass="CustomLimitInterfaceController" customModule="Dzikra">
+                    <items>
+                        <textField width="1" alignment="left" placeholder="Dzikr name" id="LeA-34-eLz">
+                            <connections>
+                                <action selector="textFieldAction:" destination="qeE-gc-G9S" id="VvJ-1d-fYI"/>
+                            </connections>
+                        </textField>
+                        <group width="1" alignment="left" spacing="4" id="9lt-6a-8W9">
+                            <items>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="l8d-Ca-ePn">
+                                    <connections>
+                                        <action selector="picker1ActionWithIndex:" destination="qeE-gc-G9S" id="Jte-vQ-EMI"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="6be-4F-PGn">
+                                    <connections>
+                                        <action selector="picker2ActionWithIndex:" destination="qeE-gc-G9S" id="7RE-PG-YGi"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="SOb-i0-3el">
+                                    <connections>
+                                        <action selector="picker3ActionWithIndex:" destination="qeE-gc-G9S" id="lfA-HG-tT7"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="OK" id="7xU-3x-pOo">
+                            <connections>
+                                <action selector="buttonOK_tap" destination="qeE-gc-G9S" id="y5d-9y-LOL"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="picker1" destination="l8d-Ca-ePn" id="27R-Vy-VIb"/>
+                        <outlet property="picker2" destination="6be-4F-PGn" id="7fC-Rv-Pwn"/>
+                        <outlet property="picker3" destination="SOb-i0-3el" id="79C-Jm-KnG"/>
+                        <outlet property="textField" destination="LeA-34-eLz" id="Jpj-WN-Bwl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1240" y="700"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Dzikra" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="1111"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Dzikra" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="1111"/>
+        </scene>
+        <!--Dzikra-->
+        <scene sceneID="bfa-1p-c7g">
+            <objects>
+                <controller identifier="Dzikra" fullBounds="YES" id="90t-sg-akd" customClass="DzikraInterfaceController" customModule="Dzikra">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="overlap" id="HOp-lF-Tas">
+                            <items>
+                                <imageView width="1" height="1" alignment="left" id="JTh-zg-n6A"/>
+                                <group width="1" alignment="left" layout="vertical" id="aDR-ZT-VPw">
+                                    <items>
+                                        <label width="1" alignment="left" text="Kalimah Thoyyibah - Very Long" textAlignment="left" id="5zd-SU-5gn">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="max" textAlignment="right" id="dtm-WT-aMd">
+                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.80000000000000004" alignment="left" verticalAlignment="bottom" contentMode="scaleAspectFit" layout="overlap" id="Cde-qU-PNa">
+                                    <items>
+                                        <imageView width="0.80000000000000004" height="0.80000000000000004" alignment="left" verticalAlignment="center" image="progress-0" contentMode="scaleAspectFit" id="7yL-OY-032"/>
+                                        <group alignment="right" verticalAlignment="bottom" id="SBr-mX-frZ">
+                                            <items>
+                                                <label alignment="right" verticalAlignment="center" text="x" id="nsn-3z-kPb">
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" type="italicSystem" weight="bold" pointSize="16"/>
+                                                </label>
+                                                <label alignment="right" verticalAlignment="bottom" text="1" id="elK-37-usM">
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" type="italicSystem" weight="bold" pointSize="24"/>
+                                                </label>
+                                            </items>
+                                            <edgeInsets key="margins" left="0.0" right="10" top="0.0" bottom="2"/>
+                                        </group>
+                                        <label width="0.80000000000000004" height="0.80000000000000004" alignment="left" verticalAlignment="center" text="100" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.5" id="PT0-1N-Y3B">
+                                            <gestureRecognizers>
+                                                <tapGestureRecognizer id="mR1-aC-1nA">
+                                                    <connections>
+                                                        <action selector="pushButtonPress" destination="90t-sg-akd" id="gC4-kU-km5"/>
+                                                    </connections>
+                                                </tapGestureRecognizer>
+                                            </gestureRecognizers>
+                                            <fontDescription key="font" type="system" pointSize="50"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="cvK-r3-SLT">
+                        <items>
+                            <menuItem title="Info" icon="info" id="Blj-ct-aOq"/>
+                            <menuItem title="Continue Later" icon="more" id="pn9-zb-aBN"/>
+                            <menuItem title="Reset" icon="resume" id="McZ-nN-o7M">
+                                <connections>
+                                    <action selector="resetButtonTap" destination="90t-sg-akd" id="1w4-N0-FlG"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                        <variation key="default">
+                            <mask key="items">
+                                <exclude reference="Blj-ct-aOq"/>
+                            </mask>
+                        </variation>
+                    </menu>
+                    <connections>
+                        <outlet property="contextImage" destination="JTh-zg-n6A" id="onI-1h-9G1"/>
+                        <outlet property="displayLabel" destination="PT0-1N-Y3B" id="owk-WP-JrS"/>
+                        <outlet property="kalimahThoyyibahLabel" destination="5zd-SU-5gn" id="2Rv-lu-dsM"/>
+                        <outlet property="loopLabel" destination="elK-37-usM" id="rRW-Xo-6Ho"/>
+                        <outlet property="maxLabel" destination="dtm-WT-aMd" id="By1-1E-ocq"/>
+                        <outlet property="progressImage" destination="7yL-OY-032" id="rDd-Oi-tTC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1600" y="318"/>
+        </scene>
+        <!--Daily Dzikr Interface Controller-->
+        <scene sceneID="f7P-oq-f51">
+            <objects>
+                <controller id="SuK-ul-Btz" customClass="DailyDzikrInterfaceController" customModule="Dzikra">
+                    <items>
+                        <table alignment="left" id="WDK-Xy-5wu">
+                            <items>
+                                <tableRow identifier="RC1" id="4kq-My-ni8" customClass="DzikrItemSetRowController" customModule="Dzikra">
+                                    <group key="rootItem" width="1" alignment="left" layout="overlap" id="sSf-Zl-m0E">
+                                        <items>
+                                            <group width="0.69999999999999996" alignment="left" layout="vertical" id="Mbl-az-0s9">
+                                                <items>
+                                                    <label width="1" alignment="left" text="Tasbih" id="vFz-XU-fJG">
+                                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                                    </label>
+                                                    <label alignment="left" verticalAlignment="bottom" text="Shubhanallah" id="uxv-Ib-Bou">
+                                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label width="0.29999999999999999" alignment="right" verticalAlignment="center" text="0000" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="5yH-WJ-z3n">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="countLabel" destination="5yH-WJ-z3n" id="nNI-4k-oBe"/>
+                                        <outlet property="subTitleLabel" destination="uxv-Ib-Bou" id="MG2-cb-eGP"/>
+                                        <outlet property="titleLabel" destination="vFz-XU-fJG" id="OhP-C4-SSG"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="WDK-Xy-5wu" id="d1a-iH-HyY"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1240" y="318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="progress-0" width="300" height="300"/>
+    </resources>
+</document>

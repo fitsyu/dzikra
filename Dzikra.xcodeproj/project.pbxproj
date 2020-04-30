@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E84F83C1244DC71800B36BA0 /* Dzikra.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E84F83C0244DC71800B36BA0 /* Dzikra.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E84F83C7244DC71800B36BA0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E84F83C5244DC71800B36BA0 /* Interface.storyboard */; };
+		E84F83C9244DC71A00B36BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84F83C8244DC71A00B36BA0 /* Assets.xcassets */; };
+		E84F83D0244DC71B00B36BA0 /* Dzikra.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E84F83CF244DC71B00B36BA0 /* Dzikra.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E84F83D7244DC71B00B36BA0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83D6244DC71B00B36BA0 /* ExtensionDelegate.swift */; };
+		E84F83D9244DC71B00B36BA0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83D8244DC71B00B36BA0 /* NotificationController.swift */; };
+		E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83DA244DC71B00B36BA0 /* ComplicationController.swift */; };
+		E84F83DD244DC71B00B36BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84F83DC244DC71B00B36BA0 /* Assets.xcassets */; };
+		E8D80CB924566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */; };
+		E8D80CBB2456712E00EC1B26 /* DailyDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */; };
+		E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBC2458D9BE00EC1B26 /* Constants.swift */; };
+		E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E46E244FBAED002121A1 /* DzikrSession.swift */; };
+		E8E4E471244FBB0B002121A1 /* DzikraInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */; };
+		E8E4E473244FBB38002121A1 /* CustomLimitInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */; };
+		E8E4E4DD24552F49002121A1 /* HomeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E4DC24552F49002121A1 /* HomeInterfaceController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E84F83C2244DC71800B36BA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E84F83B6244DC71800B36BA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E84F83BF244DC71800B36BA0;
+			remoteInfo = "Dzikra WatchKit App";
+		};
+		E84F83D1244DC71B00B36BA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E84F83B6244DC71800B36BA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E84F83CE244DC71B00B36BA0;
+			remoteInfo = "Dzikra WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E84F83E5244DC71B00B36BA0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E84F83D0244DC71B00B36BA0 /* Dzikra.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84F83E9244DC71B00B36BA0 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E84F83C1244DC71800B36BA0 /* Dzikra.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E84F83BC244DC71800B36BA0 /* Dzikra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dzikra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84F83C0244DC71800B36BA0 /* Dzikra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dzikra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84F83C6244DC71800B36BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		E84F83C8244DC71A00B36BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E84F83CA244DC71A00B36BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E84F83CF244DC71B00B36BA0 /* Dzikra.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Dzikra.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84F83D6244DC71B00B36BA0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		E84F83D8244DC71B00B36BA0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		E84F83DA244DC71B00B36BA0 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		E84F83DC244DC71B00B36BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E84F83DE244DC71B00B36BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E84F83DF244DC71B00B36BA0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerDzikrInterfaceController.swift; sourceTree = "<group>"; };
+		E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDzikrInterfaceController.swift; sourceTree = "<group>"; };
+		E8D80CBC2458D9BE00EC1B26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E8E4E46E244FBAED002121A1 /* DzikrSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrSession.swift; sourceTree = "<group>"; };
+		E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikraInterfaceController.swift; sourceTree = "<group>"; };
+		E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLimitInterfaceController.swift; sourceTree = "<group>"; };
+		E8E4E4DC24552F49002121A1 /* HomeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaceController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E84F83CC244DC71B00B36BA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E84F83B5244DC71800B36BA0 = {
+			isa = PBXGroup;
+			children = (
+				E84F83C4244DC71800B36BA0 /* Dzikra WatchKit App */,
+				E84F83D3244DC71B00B36BA0 /* Dzikra WatchKit Extension */,
+				E84F83BD244DC71800B36BA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E84F83BD244DC71800B36BA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E84F83BC244DC71800B36BA0 /* Dzikra.app */,
+				E84F83C0244DC71800B36BA0 /* Dzikra.app */,
+				E84F83CF244DC71B00B36BA0 /* Dzikra.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E84F83C4244DC71800B36BA0 /* Dzikra WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				E84F83C5244DC71800B36BA0 /* Interface.storyboard */,
+				E84F83C8244DC71A00B36BA0 /* Assets.xcassets */,
+				E84F83CA244DC71A00B36BA0 /* Info.plist */,
+			);
+			path = "Dzikra WatchKit App";
+			sourceTree = "<group>";
+		};
+		E84F83D3244DC71B00B36BA0 /* Dzikra WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E8D80CBC2458D9BE00EC1B26 /* Constants.swift */,
+				E8E4E46D244FBADC002121A1 /* UI */,
+				E8E4E46C244FBAD0002121A1 /* Data Layer */,
+				E84F83D6244DC71B00B36BA0 /* ExtensionDelegate.swift */,
+				E84F83D8244DC71B00B36BA0 /* NotificationController.swift */,
+				E84F83DA244DC71B00B36BA0 /* ComplicationController.swift */,
+				E84F83DC244DC71B00B36BA0 /* Assets.xcassets */,
+				E84F83DE244DC71B00B36BA0 /* Info.plist */,
+				E84F83DF244DC71B00B36BA0 /* PushNotificationPayload.apns */,
+			);
+			path = "Dzikra WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		E8E4E46C244FBAD0002121A1 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E8E4E46E244FBAED002121A1 /* DzikrSession.swift */,
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		E8E4E46D244FBADC002121A1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */,
+				E8E4E4DC24552F49002121A1 /* HomeInterfaceController.swift */,
+				E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */,
+				E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */,
+				E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E84F83BB244DC71800B36BA0 /* Dzikra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84F83EA244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra" */;
+			buildPhases = (
+				E84F83BA244DC71800B36BA0 /* Resources */,
+				E84F83E9244DC71B00B36BA0 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E84F83C3244DC71800B36BA0 /* PBXTargetDependency */,
+			);
+			name = Dzikra;
+			productName = Dzikra;
+			productReference = E84F83BC244DC71800B36BA0 /* Dzikra.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		E84F83BF244DC71800B36BA0 /* Dzikra WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84F83E6244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra WatchKit App" */;
+			buildPhases = (
+				E84F83BE244DC71800B36BA0 /* Resources */,
+				E84F83E5244DC71B00B36BA0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E84F83D2244DC71B00B36BA0 /* PBXTargetDependency */,
+			);
+			name = "Dzikra WatchKit App";
+			productName = "Dzikra WatchKit App";
+			productReference = E84F83C0244DC71800B36BA0 /* Dzikra.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		E84F83CE244DC71B00B36BA0 /* Dzikra WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E84F83E2244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra WatchKit Extension" */;
+			buildPhases = (
+				E84F83CB244DC71B00B36BA0 /* Sources */,
+				E84F83CC244DC71B00B36BA0 /* Frameworks */,
+				E84F83CD244DC71B00B36BA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dzikra WatchKit Extension";
+			productName = "Dzikra WatchKit Extension";
+			productReference = E84F83CF244DC71B00B36BA0 /* Dzikra.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E84F83B6244DC71800B36BA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Fitsyu ";
+				TargetAttributes = {
+					E84F83BB244DC71800B36BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					E84F83BF244DC71800B36BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					E84F83CE244DC71B00B36BA0 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = E84F83B9244DC71800B36BA0 /* Build configuration list for PBXProject "Dzikra" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E84F83B5244DC71800B36BA0;
+			productRefGroup = E84F83BD244DC71800B36BA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E84F83BB244DC71800B36BA0 /* Dzikra */,
+				E84F83BF244DC71800B36BA0 /* Dzikra WatchKit App */,
+				E84F83CE244DC71B00B36BA0 /* Dzikra WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E84F83BA244DC71800B36BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84F83BE244DC71800B36BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84F83C9244DC71A00B36BA0 /* Assets.xcassets in Resources */,
+				E84F83C7244DC71800B36BA0 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84F83CD244DC71B00B36BA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84F83DD244DC71B00B36BA0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E84F83CB244DC71B00B36BA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84F83D9244DC71B00B36BA0 /* NotificationController.swift in Sources */,
+				E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */,
+				E84F83D7244DC71B00B36BA0 /* ExtensionDelegate.swift in Sources */,
+				E8E4E4DD24552F49002121A1 /* HomeInterfaceController.swift in Sources */,
+				E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */,
+				E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */,
+				E8E4E471244FBB0B002121A1 /* DzikraInterfaceController.swift in Sources */,
+				E8D80CB924566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift in Sources */,
+				E8D80CBB2456712E00EC1B26 /* DailyDzikrInterfaceController.swift in Sources */,
+				E8E4E473244FBB38002121A1 /* CustomLimitInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E84F83C3244DC71800B36BA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E84F83BF244DC71800B36BA0 /* Dzikra WatchKit App */;
+			targetProxy = E84F83C2244DC71800B36BA0 /* PBXContainerItemProxy */;
+		};
+		E84F83D2244DC71B00B36BA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E84F83CE244DC71B00B36BA0 /* Dzikra WatchKit Extension */;
+			targetProxy = E84F83D1244DC71B00B36BA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E84F83C5244DC71800B36BA0 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E84F83C6244DC71800B36BA0 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E84F83E0244DC71B00B36BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E84F83E1244DC71B00B36BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E84F83E3244DC71B00B36BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				INFOPLIST_FILE = "Dzikra WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra.watchkitapp.watchkitextension;
+				PRODUCT_NAME = Dzikra;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		E84F83E4244DC71B00B36BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				INFOPLIST_FILE = "Dzikra WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra.watchkitapp.watchkitextension;
+				PRODUCT_NAME = Dzikra;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		E84F83E7244DC71B00B36BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				IBSC_MODULE = Dzikra_WatchKit_Extension;
+				INFOPLIST_FILE = "Dzikra WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra.watchkitapp;
+				PRODUCT_NAME = Dzikra;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		E84F83E8244DC71B00B36BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				IBSC_MODULE = Dzikra_WatchKit_Extension;
+				INFOPLIST_FILE = "Dzikra WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra.watchkitapp;
+				PRODUCT_NAME = Dzikra;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		E84F83EB244DC71B00B36BA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E84F83EC244DC71B00B36BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 635367SA9L;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = two.fitsyu.watchos.Dzikra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E84F83B9244DC71800B36BA0 /* Build configuration list for PBXProject "Dzikra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84F83E0244DC71B00B36BA0 /* Debug */,
+				E84F83E1244DC71B00B36BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84F83E2244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84F83E3244DC71B00B36BA0 /* Debug */,
+				E84F83E4244DC71B00B36BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84F83E6244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84F83E7244DC71B00B36BA0 /* Debug */,
+				E84F83E8244DC71B00B36BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E84F83EA244DC71B00B36BA0 /* Build configuration list for PBXNativeTarget "Dzikra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E84F83EB244DC71B00B36BA0 /* Debug */,
+				E84F83EC244DC71B00B36BA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E84F83B6244DC71800B36BA0 /* Project object */;
+}
