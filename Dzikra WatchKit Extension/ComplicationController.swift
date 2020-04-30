@@ -75,6 +75,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             
             handler(entry)
             
+            
+        case .extraLarge:
+            
+            let template = CLKComplicationTemplateExtraLargeRingText()
+            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
+            
+            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
+            
+            if let limit = maxValue {
+                template.fillFraction = Float(currentValue) / Float(limit)
+            } else {
+                template.fillFraction = 0
+            }
+            
+            template.ringStyle = .closed
+            
+            template.tintColor = color
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                     complicationTemplate: template)
+            
+            handler(entry)
+            
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallRingText()
             template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
@@ -93,6 +116,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                                                      complicationTemplate: template)
             
             handler(entry)
+            
+            
+            
             
         default:
             handler(nil)
