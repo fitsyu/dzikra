@@ -37,6 +37,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the current timeline entry
         
         
+        // The data to show up there
         var currentValue: Int = 0
         var maxValue: Int?
         var color: UIColor?
@@ -55,71 +56,53 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             }
         }
         
+        // Common complicaton setup
+        let textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
+        let fillFraction: Float
+        if let limit = maxValue {
+            fillFraction = Float(currentValue) / Float(limit)
+        } else {
+            fillFraction = 0
+        }
+        let ringStyle: CLKComplicationRingStyle = .closed
+        let tintColor = color
+        
+        
+        // The UI
         switch complication.family {
         case .circularSmall:
             let template = CLKComplicationTemplateCircularSmallRingText()
-            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
-            
-            if let limit = maxValue {
-                template.fillFraction = Float(currentValue) / Float(limit)
-            } else {
-                template.fillFraction = 0
-            }
-            
-            template.ringStyle = .closed
-            
-            template.tintColor = color
+            template.textProvider = textProvider
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
-            
             handler(entry)
             
-            
         case .extraLarge:
-            
             let template = CLKComplicationTemplateExtraLargeRingText()
-            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
-            
-            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
-            
-            if let limit = maxValue {
-                template.fillFraction = Float(currentValue) / Float(limit)
-            } else {
-                template.fillFraction = 0
-            }
-            
-            template.ringStyle = .closed
-            
-            template.tintColor = color
+            template.textProvider = textProvider
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
-            
             handler(entry)
             
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
-            
-            if let limit = maxValue {
-                template.fillFraction = Float(currentValue) / Float(limit)
-            } else {
-                template.fillFraction = 0
-            }
-            
-            template.ringStyle = .closed
-            
-            template.tintColor = color
+            template.textProvider = textProvider
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
-            
             handler(entry)
-            
-            
-            
-            
+
         default:
             handler(nil)
         }
