@@ -103,7 +103,22 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
             handler(entry)
-
+            
+        case .modularLarge:
+            let template = CLKComplicationTemplateModularLargeTable()
+            
+            
+            template.headerTextProvider = CLKTextProvider(format: "%@", session.dzikrName)
+            
+            template.row1Column1TextProvider = CLKTextProvider(format: "%@", "\(session.currentValue)")
+            template.row1Column2TextProvider = CLKTextProvider(format: "%@", "\(session.kalimahThoyyibah)")
+            template.row2Column1TextProvider = CLKTextProvider(format: "%@", "\(session.limit ?? 0)")
+            template.row2Column2TextProvider = CLKTextProvider(format: "%@ %%", "\(fillFraction*100)")
+            
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                     complicationTemplate: template)
+            handler(entry)
             
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallRingText()
