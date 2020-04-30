@@ -41,7 +41,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         guard
             let aSessionData = UserDefaults.standard.value(forKey: "session") as? Data,
             let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
-        else { handler(nil); return }
+            else { handler(nil); return }
         
         
         var currentValue: Int = 0
@@ -142,7 +142,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                                                      complicationTemplate: template)
             handler(entry)
             
-
+            
+        case .utilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            
+            template.textProvider = CLKSimpleTextProvider(text: "\(fillFraction*100)% \(session.kalimahThoyyibah)")
+            template.tintColor = tintColor
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                     complicationTemplate: template)
+            handler(entry)
+            
+            
         default:
             handler(nil)
         }
