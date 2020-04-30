@@ -9,8 +9,8 @@
 import Foundation
 
 protocol SessionManager {
-    func save(session: DzikrSession)
-    func restore(completion: @escaping (DzikrSession) -> Void)
+    func pause(session: DzikrSession)
+    func resume(completion: @escaping (DzikrSession) -> Void)
 }
 
 class UserDefaultsSessionManager: SessionManager {
@@ -18,7 +18,7 @@ class UserDefaultsSessionManager: SessionManager {
     let storage = UserDefaults.standard
     let key = "pausedSession"
     
-    func save(session: DzikrSession) {
+    func pause(session: DzikrSession) {
         
         do {
             let data = try JSONEncoder().encode(session)
@@ -29,7 +29,7 @@ class UserDefaultsSessionManager: SessionManager {
         }
     }
     
-    func restore(completion: @escaping (DzikrSession) -> Void) {
+    func resume(completion: @escaping (DzikrSession) -> Void) {
         
         do {
             
