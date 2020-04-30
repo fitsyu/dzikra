@@ -152,6 +152,26 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                                                      complicationTemplate: template)
             handler(entry)
             
+        case .graphicCorner:
+            let template = CLKComplicationTemplateGraphicCornerGaugeText()
+            
+            template.outerTextProvider = CLKSimpleTextProvider(text: session.kalimahThoyyibah)
+            template.outerTextProvider
+            template.leadingTextProvider = textProvider
+            template.trailingTextProvider = CLKSimpleTextProvider(text: "\(session.limit!)")
+            
+            let gaugeColor = tintColor ?? UIColor.white
+            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: gaugeColor, fillFraction: fillFraction)
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                          complicationTemplate: template)
+            handler(entry)
+            
+//        case .graphicCircular:
+//
+//        case .graphicBezel:
+//
+//        case .graphicRectangular:
             
         default:
             handler(nil)
