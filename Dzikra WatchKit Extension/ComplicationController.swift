@@ -130,6 +130,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
             handler(entry)
+            
+        case .utilitarianSmallFlat:
+            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+            
+            let prefix = session.kalimahThoyyibah.prefix(2)
+            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue) \(prefix)")
+            template.tintColor = tintColor
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                     complicationTemplate: template)
+            handler(entry)
+            
 
         default:
             handler(nil)
