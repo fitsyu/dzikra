@@ -139,8 +139,8 @@ class DzikraInterfaceController: WKInterfaceController {
             UserDefaults.standard.removeObject(forKey: "session")
         }
         
-        if let firstComplication = CLKComplicationServer.sharedInstance().activeComplications?.first {
-            CLKComplicationServer.sharedInstance().reloadTimeline(for: firstComplication)
+        CLKComplicationServer.sharedInstance().activeComplications?.forEach { each in
+            CLKComplicationServer.sharedInstance().reloadTimeline(for: each)
         }
     }
     
