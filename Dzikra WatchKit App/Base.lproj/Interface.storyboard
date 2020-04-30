@@ -209,11 +209,11 @@
                                             <items>
                                                 <label alignment="right" verticalAlignment="center" text="x" id="nsn-3z-kPb">
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="font" type="italicSystem" weight="bold" pointSize="16"/>
+                                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
                                                 </label>
                                                 <label alignment="right" verticalAlignment="bottom" text="1" id="elK-37-usM">
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="font" type="italicSystem" weight="bold" pointSize="24"/>
+                                                    <fontDescription key="font" type="boldSystem" pointSize="24"/>
                                                 </label>
                                             </items>
                                             <edgeInsets key="margins" left="0.0" right="10" top="0.0" bottom="2"/>
