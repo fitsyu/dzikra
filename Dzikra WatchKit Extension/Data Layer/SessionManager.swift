@@ -10,7 +10,8 @@ import Foundation
 
 protocol SessionManager {
     func pause(session: DzikrSession)
-    func resume(completion: @escaping (DzikrSession) -> Void)
+    func resume(completion: @escaping (DzikrSession?) -> Void)
+    func clear()
 }
 
 class UserDefaultsSessionManager: SessionManager {
@@ -42,5 +43,9 @@ class UserDefaultsSessionManager: SessionManager {
         } catch {
             print(error)
         }
+    }
+    
+    func clear() {
+        storage.removeObject(forKey: key)
     }
 }
