@@ -52,6 +52,8 @@ class DzikraInterfaceController: WKInterfaceController {
     }
     
     var activeSession: DzikrSession?
+    var tobeContinuedSession: DzikrSession?
+    let sessionManager: SessionManager = UserDefaultsSessionManager()
     
     private var maxValue: Int = 10
     
@@ -65,6 +67,13 @@ class DzikraInterfaceController: WKInterfaceController {
         
         currentValue = 0
         WKInterfaceDevice.current().play(.click)
+    }
+    
+    @IBAction func continueLaterButtonTap() {
+        
+        guard let session = tobeContinuedSession else { return }
+        sessionManager.pause(session: session)
+        pop()
     }
     
     // MARK: LifeCycle
@@ -103,15 +112,19 @@ class DzikraInterfaceController: WKInterfaceController {
         //        }
     }
     
-    // called when you tap back
+    // called when you tap back & LONG PRESSING TO SHOW MENU
     override func willDisappear() {
         super.willDisappear()
+        
+        // update potential session to pause
+        tobeContinuedSession?.currentValue = currentValue
+//        continueLaterSession?.roundValue
         
         // clear session
         activeSession = nil
     }
     
-    // called when crown is tapped
+    // called when crown is tapped & also after willDisapper
     override func didDeactivate() {
         super.didDeactivate()
         
@@ -134,9 +147,9 @@ class DzikraInterfaceController: WKInterfaceController {
     private func displayActiveSession() {
         guard let session = activeSession else { return }
         
-        self.currentValue = session.currentValue
         self.maxValue     = session.limit ?? -1
-        
+        self.currentValue = session.currentValue
+
         // labels
         self.kalimahThoyyibahLabel.setText(session.kalimahThoyyibah)
         
@@ -150,6 +163,8 @@ class DzikraInterfaceController: WKInterfaceController {
             let color = UIColor(hex: hex)
             kalimahThoyyibahLabel.setTextColor(color)
         }
+        
+        tobeContinuedSession = session
     }
     
     private func drawFancyFutureLines() {
