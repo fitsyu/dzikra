@@ -202,7 +202,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(entry)
 
 
-//        case .graphicRectangular:
+        case .graphicRectangular:
+            // TODO: look out for !
+            let template = CLKComplicationTemplateGraphicRectangularTextGauge()
+            
+            var header = session.kalimahThoyyibah
+            if header.isEmpty { header = "Dzikra" }
+            template.headerTextProvider = CLKSimpleTextProvider(text: header)
+            
+            let lagi = "\((maxValue ?? 0)-currentValue) Lagi"
+            template.body1TextProvider = CLKSimpleTextProvider(
+                format: "%.0f%%, %@.", fillFraction*100, lagi)
+            
+            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill,
+                                                            gaugeColor: tintColor!,
+                                                            fillFraction: fillFraction)
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                          complicationTemplate: template)
+            handler(entry)
             
         default:
             handler(nil)
