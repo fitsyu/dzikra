@@ -44,27 +44,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             else { handler(nil); return }
         
         
-        var currentValue: Int = 0
-        var maxValue: Int?
-        var color: UIColor?
-        
-        currentValue = session.currentValue
-        if let limit = session.limit {
-            maxValue = limit
-        }
-        
+        let currentValue: Int = session.currentValue
+        let maxValue: Int = session.limit ?? 0
+        let color: UIColor
+ 
         if let hex = session.color {
-            color = UIColor(hex: hex)
+            color = UIColor(hex: hex) ?? UIColor.white
+        } else {
+            color = UIColor.white
         }
         
         // Common complicaton setup
         let textProvider = CLKSimpleTextProvider(text: "\(currentValue)")
-        let fillFraction: Float
-        if let limit = maxValue {
-            fillFraction = Float(currentValue) / Float(limit)
-        } else {
-            fillFraction = 0
-        }
+        let fillFraction: Float = Float(currentValue) / Float(maxValue)
+        let percent = String(format: "%.0f%%", fillFraction*100)
+        
         let ringStyle: CLKComplicationRingStyle = .closed
         let tintColor = color
         
@@ -113,7 +107,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.row1Column1TextProvider = CLKTextProvider(format: "%@", "\(session.currentValue)")
             template.row1Column2TextProvider = CLKTextProvider(format: "%@", "\(session.kalimahThoyyibah)")
             template.row2Column1TextProvider = CLKTextProvider(format: "%@", "\(session.limit ?? 0)")
-            template.row2Column2TextProvider = CLKTextProvider(format: "%.0f%%", fillFraction*100)
+            template.row2Column2TextProvider = CLKSimpleTextProvider(text: percent)
             
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
@@ -146,7 +140,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .utilitarianLarge:
             let template = CLKComplicationTemplateUtilitarianLargeFlat()
             
-            template.textProvider = CLKSimpleTextProvider(text: "\(fillFraction*100)% \(session.kalimahThoyyibah)")
+            template.textProvider = CLKSimpleTextProvider(text: "\(percent) \(session.kalimahThoyyibah)")
             template.tintColor = tintColor
             let entry = CLKComplicationTimelineEntry(date: Date(),
                                                      complicationTemplate: template)
@@ -157,9 +151,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             
             template.outerTextProvider = CLKSimpleTextProvider(text: session.kalimahThoyyibah)
             template.leadingTextProvider = textProvider
-            template.trailingTextProvider = CLKSimpleTextProvider(text: "\(session.limit!)")
+            template.trailingTextProvider = CLKSimpleTextProvider(text: "\(maxValue)")
             
-            let gaugeColor = tintColor ?? UIColor.white
+            let gaugeColor = tintColor
             template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: gaugeColor, fillFraction: fillFraction)
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
@@ -170,7 +164,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
             
             template.centerTextProvider = textProvider
-            let gaugeColor = tintColor ?? UIColor.white
+            let gaugeColor = tintColor
             template.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
                                                             gaugeColor: gaugeColor,
                                                             fillFraction: fillFraction)
@@ -182,15 +176,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .graphicBezel:
             let template = CLKComplicationTemplateGraphicBezelCircularText()
             
-            let topTextProvider = CLKSimpleTextProvider(format: "%.0f%% - %@",
-                                                        fillFraction*100, session.kalimahThoyyibah)
-            topTextProvider.tintColor = tintColor ?? UIColor.white
+            let topTextProvider = CLKSimpleTextProvider(text: "\(percent) - \(session.kalimahThoyyibah)")
+            topTextProvider.tintColor = tintColor
             template.textProvider = topTextProvider
             
             let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
             
             circularTemplate.centerTextProvider = textProvider
-            let gaugeColor = tintColor ?? UIColor.white
+            let gaugeColor = tintColor
             circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
                                                             gaugeColor: gaugeColor,
                                                             fillFraction: fillFraction)
@@ -203,19 +196,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
 
         case .graphicRectangular:
-            // TODO: look out for !
             let template = CLKComplicationTemplateGraphicRectangularTextGauge()
             
             var header = session.kalimahThoyyibah
             if header.isEmpty { header = "Dzikra" }
             template.headerTextProvider = CLKSimpleTextProvider(text: header)
             
-            let lagi = "\((maxValue ?? 0)-currentValue) Lagi"
-            template.body1TextProvider = CLKSimpleTextProvider(
-                format: "%.0f%%, %@.", fillFraction*100, lagi)
+            let lagi = "\((maxValue )-currentValue) Lagi"
+            template.body1TextProvider = CLKSimpleTextProvider(text: "\(percent), \(lagi).")
             
             template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill,
-                                                            gaugeColor: tintColor!,
+                                                            gaugeColor: tintColor,
                                                             fillFraction: fillFraction)
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
