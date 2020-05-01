@@ -113,7 +113,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.row1Column1TextProvider = CLKTextProvider(format: "%@", "\(session.currentValue)")
             template.row1Column2TextProvider = CLKTextProvider(format: "%@", "\(session.kalimahThoyyibah)")
             template.row2Column1TextProvider = CLKTextProvider(format: "%@", "\(session.limit ?? 0)")
-            template.row2Column2TextProvider = CLKTextProvider(format: "%@ %%", "\(fillFraction*100)")
+            template.row2Column2TextProvider = CLKTextProvider(format: "%.0f%%", fillFraction*100)
             
             
             let entry = CLKComplicationTimelineEntry(date: Date(),
@@ -179,8 +179,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                                                           complicationTemplate: template)
             handler(entry)
 
-//        case .graphicBezel:
-//
+        case .graphicBezel:
+            let template = CLKComplicationTemplateGraphicBezelCircularText()
+            
+            let topTextProvider = CLKSimpleTextProvider(format: "%.0f%% - %@",
+                                                        fillFraction*100, session.kalimahThoyyibah)
+            topTextProvider.tintColor = tintColor ?? UIColor.white
+            template.textProvider = topTextProvider
+            
+            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            
+            circularTemplate.centerTextProvider = textProvider
+            let gaugeColor = tintColor ?? UIColor.white
+            circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
+                                                            gaugeColor: gaugeColor,
+                                                            fillFraction: fillFraction)
+            
+            template.circularTemplate = circularTemplate
+            
+            let entry = CLKComplicationTimelineEntry(date: Date(),
+                                                          complicationTemplate: template)
+            handler(entry)
+
+
 //        case .graphicRectangular:
             
         default:
