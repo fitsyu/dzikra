@@ -18,6 +18,7 @@
 		E8D80CB924566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */; };
 		E8D80CBB2456712E00EC1B26 /* DailyDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */; };
 		E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBC2458D9BE00EC1B26 /* Constants.swift */; };
+		E8D80CF7245BFAA100EC1B26 /* TextScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CF6245BFAA100EC1B26 /* TextScroll.swift */; };
 		E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E46E244FBAED002121A1 /* DzikrSession.swift */; };
 		E8E4E471244FBB0B002121A1 /* DzikraInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */; };
 		E8E4E473244FBB38002121A1 /* CustomLimitInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */; };
@@ -82,6 +83,7 @@
 		E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerDzikrInterfaceController.swift; sourceTree = "<group>"; };
 		E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDzikrInterfaceController.swift; sourceTree = "<group>"; };
 		E8D80CBC2458D9BE00EC1B26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E8D80CF6245BFAA100EC1B26 /* TextScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScroll.swift; sourceTree = "<group>"; };
 		E8E4E46E244FBAED002121A1 /* DzikrSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrSession.swift; sourceTree = "<group>"; };
 		E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikraInterfaceController.swift; sourceTree = "<group>"; };
 		E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLimitInterfaceController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				E8D80CBC2458D9BE00EC1B26 /* Constants.swift */,
 				E8E4E46D244FBADC002121A1 /* UI */,
+				E8D80CF5245BFA8800EC1B26 /* Supports */,
 				E8E4E46C244FBAD0002121A1 /* Data Layer */,
 				E84F83D6244DC71B00B36BA0 /* ExtensionDelegate.swift */,
 				E84F83D8244DC71B00B36BA0 /* NotificationController.swift */,
@@ -142,6 +145,14 @@
 				E84F83DF244DC71B00B36BA0 /* PushNotificationPayload.apns */,
 			);
 			path = "Dzikra WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		E8D80CF5245BFA8800EC1B26 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E8D80CF6245BFAA100EC1B26 /* TextScroll.swift */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 		E8E4E46C244FBAD0002121A1 /* Data Layer */ = {
@@ -293,6 +304,7 @@
 			files = (
 				E84F83D9244DC71B00B36BA0 /* NotificationController.swift in Sources */,
 				E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */,
+				E8D80CF7245BFAA100EC1B26 /* TextScroll.swift in Sources */,
 				E84F83D7244DC71B00B36BA0 /* ExtensionDelegate.swift in Sources */,
 				E8E4E4DD24552F49002121A1 /* HomeInterfaceController.swift in Sources */,
 				E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */,
