@@ -30,7 +30,7 @@ class UserDefaultsSessionManager: SessionManager {
         }
     }
     
-    func resume(completion: @escaping (DzikrSession) -> Void) {
+    func resume(completion: @escaping (DzikrSession?) -> Void) {
         
         do {
             
@@ -38,7 +38,10 @@ class UserDefaultsSessionManager: SessionManager {
                 
                 let session = try JSONDecoder().decode(DzikrSession.self, from: data)
                 completion(session)
+                return
             }
+            
+            completion(nil)
             
         } catch {
             print(error)
