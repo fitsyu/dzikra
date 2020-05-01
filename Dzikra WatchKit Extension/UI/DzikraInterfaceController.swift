@@ -111,6 +111,18 @@ class DzikraInterfaceController: WKInterfaceController {
         activeSession = nil
     }
     
+    override func didAppear() {
+        super.didAppear()
+        
+        let text = activeSession?.kalimahThoyyibah ?? ""
+        let font = UIFont.systemFont(ofSize: 15)
+        if isTruncated(text: text, width: contentFrame.width, font: font, numOfLines: 1) {
+            
+            kalimahThoyyibahLabel.setAutoHorizontalScrollText(text)
+            scrollAfter1s() // give time for user to glance throuh the lafadz
+        }
+    }
+    
     // called when crown is tapped
     override func didDeactivate() {
         super.didDeactivate()
@@ -185,5 +197,26 @@ class DzikraInterfaceController: WKInterfaceController {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         contextImage.setImage(img)
+    }
+    
+    
+    private func scrollAfter1s() {
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+            self.kalimahThoyyibahLabel.startTimer()
+        })
+    }
+    
+    private func isTruncated(text: String, width: CGFloat, font: UIFont, numOfLines: Int) -> Bool {
+        
+        let rect = text.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
+                                     options: .usesLineFragmentOrigin,
+                                     attributes: [NSAttributedString.Key.font : font],
+                                     context: nil)
+        
+        let thisNumOfLines = Int(ceil(rect.size.height / font.lineHeight))
+
+        let isTruncated = thisNumOfLines > numOfLines
+        return isTruncated
     }
 }
