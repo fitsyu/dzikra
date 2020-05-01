@@ -103,14 +103,6 @@ class DzikraInterfaceController: WKInterfaceController {
         //        }
     }
     
-    // called when you tap back
-    override func willDisappear() {
-        super.willDisappear()
-        
-        // clear session
-        activeSession = nil
-    }
-    
     override func didAppear() {
         super.didAppear()
         
@@ -123,6 +115,16 @@ class DzikraInterfaceController: WKInterfaceController {
         }
     }
     
+    // called when you tap back
+    override func willDisappear() {
+        super.willDisappear()
+        
+        // clear session
+        activeSession = nil
+        
+        kalimahThoyyibahLabel.stopTimer()
+    }
+
     // called when crown is tapped
     override func didDeactivate() {
         super.didDeactivate()
