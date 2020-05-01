@@ -55,6 +55,36 @@ class HomeInterfaceControler: WKInterfaceController {
     @IBAction func customDzikrButtonTap() {
         presentController(withName: "CustomLimit", context: self)
     }
+    
+    // MARK: LifeCycle
+    
+    @IBOutlet weak var continueButton: WKInterfaceButton!
+    
+    @IBAction func continueButtonTap() {
+        
+        guard let pausedSession = sessionToContinue else { return }
+        
+        pushController(withName: "Dzikra", context: pausedSession)
+        
+        sessionManager.clear()
+    }
+    
+    let sessionManager: SessionManager = UserDefaultsSessionManager()
+    var sessionToContinue: DzikrSession?
+    override func willActivate() {
+        super.willActivate()
+        
+        sessionManager.resume(completion: { (pausedSession: DzikrSession?) in
+            
+            if pausedSession != nil {
+                // show paused session
+                self.continueButton.setHidden(false)
+                self.sessionToContinue = pausedSession
+            } else {
+                self.continueButton.setHidden(true)
+            }
+        })
+    }
 }
 
 extension HomeInterfaceControler: CustomLimitDelegate {

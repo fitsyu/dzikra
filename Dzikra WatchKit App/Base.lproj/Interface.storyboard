@@ -56,6 +56,12 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
+                        <button width="1" alignment="left" title="Continue Saved Session" id="z3W-KZ-j8s">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="continueButtonTap" destination="Jy7-lN-aIt" id="nFi-0a-r7B"/>
+                            </connections>
+                        </button>
                         <group width="1" height="37" alignment="left" spacing="3" id="mVP-Cb-7co">
                             <items>
                                 <button width="0.29999999999999999" height="1" alignment="left" verticalAlignment="center" title="7" id="9dy-Rs-BAp">
@@ -102,6 +108,9 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="continueButton" destination="z3W-KZ-j8s" id="qqS-RE-WlR"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="812" y="245"/>
@@ -236,7 +245,11 @@
                     <menu key="menu" id="cvK-r3-SLT">
                         <items>
                             <menuItem title="Info" icon="info" id="Blj-ct-aOq"/>
-                            <menuItem title="Continue Later" icon="more" id="pn9-zb-aBN"/>
+                            <menuItem title="Continue Later" icon="more" id="pn9-zb-aBN">
+                                <connections>
+                                    <action selector="continueLaterButtonTap" destination="90t-sg-akd" id="Q4N-PT-uNz"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Reset" icon="resume" id="McZ-nN-o7M">
                                 <connections>
                                     <action selector="resetButtonTap" destination="90t-sg-akd" id="1w4-N0-FlG"/>

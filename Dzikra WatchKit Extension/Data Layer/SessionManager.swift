@@ -10,7 +10,8 @@ import Foundation
 
 protocol SessionManager {
     func pause(session: DzikrSession)
-    func resume(completion: @escaping (DzikrSession) -> Void)
+    func resume(completion: @escaping (DzikrSession?) -> Void)
+    func clear()
 }
 
 class UserDefaultsSessionManager: SessionManager {
@@ -29,7 +30,7 @@ class UserDefaultsSessionManager: SessionManager {
         }
     }
     
-    func resume(completion: @escaping (DzikrSession) -> Void) {
+    func resume(completion: @escaping (DzikrSession?) -> Void) {
         
         do {
             
@@ -37,10 +38,17 @@ class UserDefaultsSessionManager: SessionManager {
                 
                 let session = try JSONDecoder().decode(DzikrSession.self, from: data)
                 completion(session)
+                return
             }
+            
+            completion(nil)
             
         } catch {
             print(error)
         }
+    }
+    
+    func clear() {
+        storage.removeObject(forKey: key)
     }
 }
