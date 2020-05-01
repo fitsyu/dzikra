@@ -188,25 +188,42 @@ class DzikraInterfaceController: WKInterfaceController {
         guard let cgContext = UIGraphicsGetCurrentContext() else  { return }
         cgContext.beginPath()
         
+        var point: CGPoint
+        
         cgContext.setStrokeColor(UIColor.lightGray.cgColor)
         cgContext.setFillColor(UIColor.lightGray.cgColor)
         cgContext.setLineWidth(1)
         
-        cgContext.move(to: CGPoint(x: contentFrame.maxX-0, y: 40))
-        cgContext.addLine(to: CGPoint(x: contentFrame.maxX-25, y: 40))
-        cgContext.addLine(to: CGPoint(x: contentFrame.maxX-35, y: 50))
+        // 1st line
+        point = CGPoint(x: contentFrame.maxX-0, y: 40)
+        cgContext.move(to: point)
+        
+        point = CGPoint(x: contentFrame.maxX-25, y: 40)
+        cgContext.addLine(to: point)
+        
+        point = CGPoint(x: contentFrame.maxX-35, y: 50)
+        cgContext.addLine(to: point)
         cgContext.strokePath()
         
         cgContext.fillEllipse(in: CGRect(x: contentFrame.maxX-38.5, y: 48.5, width: 5, height: 5))
     
-        cgContext.move(to: CGPoint(x: contentFrame.minX+3, y: contentFrame.minY))
-        cgContext.addLine(to: CGPoint(x: contentFrame.minX+3, y: contentFrame.midY - 30))
-        cgContext.addLine(to: CGPoint(x: contentFrame.minX+5, y: contentFrame.midY - 28))
+        // 2nd line
+        point = CGPoint(x: contentFrame.minX+3, y: contentFrame.minY)
+        cgContext.move(to: point)
+        
+        point = CGPoint(x: contentFrame.minX+3, y: contentFrame.midY - 30)
+        cgContext.addLine(to: point)
         cgContext.strokePath()
         
+        cgContext.fillEllipse(in: CGRect(x: point.x-2.5, y: point.y-2.5, width: 5, height: 5))
         
+        // 3rd line
         let y = contentFrame.maxY - 20
-        cgContext.move(to: CGPoint(x: contentFrame.midX-5, y: y-5))
+        point = CGPoint(x: contentFrame.midX-5, y: y-8)
+        cgContext.move(to: point)
+        cgContext.fillEllipse(in: CGRect(x: point.x-2.5, y: point.y-2.5, width: 5, height: 5))
+        
+        cgContext.move(to: point)
         cgContext.addLine(to: CGPoint(x: contentFrame.midX+3, y: y))
         cgContext.addLine(to: CGPoint(x: contentFrame.maxX-10, y: y))
         cgContext.strokePath()
