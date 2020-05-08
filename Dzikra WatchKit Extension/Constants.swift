@@ -8,3 +8,4 @@
 
 let DEFAULT_DZIKR_NAME = "Dzikr"
 
+let KEY_SESSION = "session"
