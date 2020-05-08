@@ -6,10 +6,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
-        <!--Post Prayer Dzikr Interface Controller-->
+        <!--DzikrSetTable-->
         <scene sceneID="G2M-4S-qHe">
             <objects>
-                <controller id="fnu-YD-oMP" customClass="PostPrayerDzikrInterfaceController" customModule="Dzikra">
+                <controller identifier="DzikrSetTable" id="fnu-YD-oMP" customClass="DzikrSetTableInterfaceController" customModule="Dzikra">
                     <items>
                         <table alignment="left" id="IHF-7X-cUV">
                             <items>
@@ -45,7 +45,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1240" y="-13"/>
+            <point key="canvasLocation" x="1193" y="244"/>
         </scene>
         <!--Home Interface Controler-->
         <scene sceneID="ARC-Yp-qMq">
@@ -91,12 +91,12 @@
                         </label>
                         <button width="1" alignment="left" title="Setelah Sholat" id="LcG-PX-yTL">
                             <connections>
-                                <segue destination="fnu-YD-oMP" kind="push" id="Fml-QW-HV8"/>
+                                <action selector="postPrayerDzikrButtonTap" destination="Jy7-lN-aIt" id="Gsi-SX-kd5"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="Harian" id="gRl-8D-37S">
                             <connections>
-                                <segue destination="SuK-ul-Btz" kind="push" id="plk-Zu-9IM"/>
+                                <action selector="dailyDzikrButtonTap" destination="Jy7-lN-aIt" id="Gy2-yf-Dpq"/>
                             </connections>
                         </button>
                         <separator alignment="left" id="QjO-sS-I6W">
@@ -273,47 +273,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="1600" y="318"/>
-        </scene>
-        <!--Daily Dzikr Interface Controller-->
-        <scene sceneID="f7P-oq-f51">
-            <objects>
-                <controller id="SuK-ul-Btz" customClass="DailyDzikrInterfaceController" customModule="Dzikra">
-                    <items>
-                        <table alignment="left" id="WDK-Xy-5wu">
-                            <items>
-                                <tableRow identifier="RC1" id="4kq-My-ni8" customClass="DzikrItemSetRowController" customModule="Dzikra">
-                                    <group key="rootItem" width="1" alignment="left" layout="overlap" id="sSf-Zl-m0E">
-                                        <items>
-                                            <group width="0.69999999999999996" alignment="left" layout="vertical" id="Mbl-az-0s9">
-                                                <items>
-                                                    <label width="1" alignment="left" text="Tasbih" id="vFz-XU-fJG">
-                                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                                    </label>
-                                                    <label alignment="left" verticalAlignment="bottom" text="Shubhanallah" id="uxv-Ib-Bou">
-                                                        <fontDescription key="font" type="system" pointSize="11"/>
-                                                    </label>
-                                                </items>
-                                            </group>
-                                            <label width="0.29999999999999999" alignment="right" verticalAlignment="center" text="0000" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="5yH-WJ-z3n">
-                                                <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
-                                            </label>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="countLabel" destination="5yH-WJ-z3n" id="nNI-4k-oBe"/>
-                                        <outlet property="subTitleLabel" destination="uxv-Ib-Bou" id="MG2-cb-eGP"/>
-                                        <outlet property="titleLabel" destination="vFz-XU-fJG" id="OhP-C4-SSG"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="tableView" destination="WDK-Xy-5wu" id="d1a-iH-HyY"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="1240" y="318"/>
         </scene>
     </scenes>
     <resources>

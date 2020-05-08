@@ -52,6 +52,14 @@ class HomeInterfaceControler: WKInterfaceController {
         pushController(withName: "Dzikra", context: session)
     }
     
+    @IBAction func postPrayerDzikrButtonTap() {
+        pushController(withName: "DzikrSetTable", context: BuiltinDzikrSet.PostPrayer)
+    }
+    
+    @IBAction func dailyDzikrButtonTap() {
+        pushController(withName: "DzikrSetTable", context: BuiltinDzikrSet.Daily)
+    }
+    
     @IBAction func customDzikrButtonTap() {
         presentController(withName: "CustomLimit", context: self)
     }

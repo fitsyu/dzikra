@@ -16,8 +16,7 @@
 		E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83DA244DC71B00B36BA0 /* ComplicationController.swift */; };
 		E84F83DD244DC71B00B36BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84F83DC244DC71B00B36BA0 /* Assets.xcassets */; };
 		E878694D2464F76B007A2111 /* DzikrItemSetRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */; };
-		E8D80CB924566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */; };
-		E8D80CBB2456712E00EC1B26 /* DailyDzikrInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */; };
+		E878694F2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */; };
 		E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CBC2458D9BE00EC1B26 /* Constants.swift */; };
 		E8D80CF4245B8DCE00EC1B26 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CF3245B8DCE00EC1B26 /* SessionManager.swift */; };
 		E8D80CF7245BFAA100EC1B26 /* TextScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D80CF6245BFAA100EC1B26 /* TextScroll.swift */; };
@@ -83,8 +82,7 @@
 		E84F83DE244DC71B00B36BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E84F83DF244DC71B00B36BA0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrItemSetRowController.swift; sourceTree = "<group>"; };
-		E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrayerDzikrInterfaceController.swift; sourceTree = "<group>"; };
-		E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDzikrInterfaceController.swift; sourceTree = "<group>"; };
+		E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrSetTableInterfaceController.swift; sourceTree = "<group>"; };
 		E8D80CBC2458D9BE00EC1B26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E8D80CF3245B8DCE00EC1B26 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E8D80CF6245BFAA100EC1B26 /* TextScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScroll.swift; sourceTree = "<group>"; };
@@ -173,10 +171,9 @@
 			children = (
 				E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */,
 				E8E4E4DC24552F49002121A1 /* HomeInterfaceController.swift */,
-				E8D80CBA2456712E00EC1B26 /* DailyDzikrInterfaceController.swift */,
-				E8D80CB824566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift */,
 				E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */,
 				E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */,
+				E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -316,8 +313,7 @@
 				E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */,
 				E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */,
 				E8E4E471244FBB0B002121A1 /* DzikraInterfaceController.swift in Sources */,
-				E8D80CB924566FCF00EC1B26 /* PostPrayerDzikrInterfaceController.swift in Sources */,
-				E8D80CBB2456712E00EC1B26 /* DailyDzikrInterfaceController.swift in Sources */,
+				E878694F2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift in Sources */,
 				E8E4E473244FBB38002121A1 /* CustomLimitInterfaceController.swift in Sources */,
 				E878694D2464F76B007A2111 /* DzikrItemSetRowController.swift in Sources */,
 				E8D80CF4245B8DCE00EC1B26 /* SessionManager.swift in Sources */,

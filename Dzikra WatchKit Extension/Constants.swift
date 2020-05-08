@@ -6,7 +6,12 @@
 //  Copyright © 2020 Fitsyu . All rights reserved.
 //
 
+import WatchKit
+
 let DEFAULT_DZIKR_NAME = "Dzikr"
+
+let DEFAULT_BACKGROUND_COLOR = UIColor.black
+let DEFAULT_FOREGROUND_COLOR = UIColor.white
 
 let KEY_ACTIVE_SESSION = "session"
 let KEY_PAUSED_SESSION = "pausedSession"
