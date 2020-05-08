@@ -33,16 +33,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Population
     
+    let activeSessionManager = ActiveSessionManager()
+    
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
         
-        
-        // The data to show up there
-        guard
-            let aSessionData = UserDefaults.standard.value(forKey: KEY_ACTIVE_SESSION) as? Data,
-            let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
-        else { handler(nil); return }
-        
+        activeSessionManager.load(completion: { activeSession in
+            
+            guard let session = activeSession else {
+                handler(nil)
+                return
+            }
+            
+            let entry = self.makeTimelineEntry(for: session, complication: complication)
+            handler(entry)
+        })
+    }
+    
+    func makeTimelineEntry(for session: DzikrSession, complication: CLKComplication) -> CLKComplicationTimelineEntry {
         
         let currentValue: Int = session.currentValue
         let maxValue: Int = session.limit ?? 0
@@ -192,12 +200,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             theTemplate = template
             
         @unknown default:
-            handler(nil)
-            return
+            return CLKComplicationTimelineEntry()
         }
         
         let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: theTemplate)
-        handler(entry)
+        return entry
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {

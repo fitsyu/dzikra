@@ -54,6 +54,7 @@ class DzikraInterfaceController: WKInterfaceController {
     var activeSession: DzikrSession?
     var tobeContinuedSession: DzikrSession?
     let sessionManager: SessionManager = UserDefaultsSessionManager()
+    let activeSessionManager: SessionManager = ActiveSessionManager()
     
     private var maxValue: Int = 10
     
@@ -92,24 +93,27 @@ class DzikraInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        if let lastSessionData = UserDefaults.standard.value(forKey: KEY_ACTIVE_SESSION) as? Data {
-            // resume an active session
-            if let lastSession = try? JSONDecoder().decode(DzikrSession.self, from: lastSessionData) {
-                
-                activeSession = lastSession
-                displayActiveSession()
+        activeSessionManager.load(completion: { potentialSessionToResume in
+            
+            if let session = potentialSessionToResume {
+                // resume an active session
+                self.activeSession = session
+                self.displayActiveSession()
             }
-        }
-        else if let _ = activeSession {
-            // new session set by home
-            displayActiveSession()
-        }
+            else {
+                if let _ = self.activeSession {
+                    
+                    // new session set by home
+                    self.displayActiveSession()
+                }
+                //        else {
+                //            // plain new session
+                //            activeSession = DzikrSession(kalimahThoyyibah: "", currentValue: 0, limit: maxValue)
+                //            displayActiveSession()
+                //        }
+            }
+        })
         
-        //        else {
-        //            // plain new session
-        //            activeSession = DzikrSession(kalimahThoyyibah: "", currentValue: 0, limit: maxValue)
-        //            displayActiveSession()
-        //        }
     }
     
     override func didAppear() {
@@ -130,7 +134,7 @@ class DzikraInterfaceController: WKInterfaceController {
         
         // update potential session to pause
         tobeContinuedSession?.currentValue = currentValue
-//        continueLaterSession?.roundValue
+        //        continueLaterSession?.roundValue
         
         // clear session
         activeSession = nil
@@ -143,11 +147,9 @@ class DzikraInterfaceController: WKInterfaceController {
         super.didDeactivate()
         
         if let sessionToSave = activeSession {
-            if let sessionData = try? JSONEncoder().encode(sessionToSave) {
-                UserDefaults.standard.setValue(sessionData, forKey: KEY_ACTIVE_SESSION)
-            }
+            activeSessionManager.save(session: sessionToSave)
         } else {
-            UserDefaults.standard.removeObject(forKey: KEY_ACTIVE_SESSION)
+            activeSessionManager.clear()
         }
         
         CLKComplicationServer.sharedInstance().activeComplications?.forEach { each in
@@ -161,7 +163,7 @@ class DzikraInterfaceController: WKInterfaceController {
         
         self.maxValue     = session.limit ?? -1
         self.currentValue = session.currentValue
-
+        
         // labels
         self.kalimahThoyyibahLabel.setText(session.kalimahThoyyibah)
         
@@ -204,7 +206,7 @@ class DzikraInterfaceController: WKInterfaceController {
         cgContext.strokePath()
         
         cgContext.fillEllipse(in: CGRect(x: contentFrame.maxX-38.5, y: 48.5, width: 5, height: 5))
-    
+        
         // 2nd line
         point = CGPoint(x: contentFrame.minX+3, y: contentFrame.minY)
         cgContext.move(to: point)
@@ -247,7 +249,7 @@ class DzikraInterfaceController: WKInterfaceController {
                                      context: nil)
         
         let thisNumOfLines = Int(ceil(rect.size.height / font.lineHeight))
-
+        
         let isTruncated = thisNumOfLines > numOfLines
         return isTruncated
     }
