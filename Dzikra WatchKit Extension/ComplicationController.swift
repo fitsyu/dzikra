@@ -99,10 +99,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateModularLargeTable()
             
             template.headerTextProvider = CLKSimpleTextProvider(text: session.dzikrName)
-            template.row1Column1TextProvider = currentValueTextProvider
+            template.row1Column1TextProvider = CLKSimpleTextProvider(text: percent)
             template.row1Column2TextProvider = CLKSimpleTextProvider(text: session.kalimahThoyyibah)
-            template.row2Column1TextProvider = CLKSimpleTextProvider(text: "\(maxValue)")
-            template.row2Column2TextProvider = CLKSimpleTextProvider(text: percent)
+            template.row2Column1TextProvider = CLKSimpleTextProvider(text: "\(currentValue)/\(maxValue)")
+            
+            let left = maxValue-currentValue
+            let message = left == 0 ? "Selesai" : "\(left) lagi"
+            template.row2Column2TextProvider = CLKSimpleTextProvider(text: message)
   
             theTemplate = template
             
