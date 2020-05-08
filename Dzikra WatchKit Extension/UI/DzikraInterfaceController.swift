@@ -72,7 +72,7 @@ class DzikraInterfaceController: WKInterfaceController {
     @IBAction func continueLaterButtonTap() {
         
         guard let session = tobeContinuedSession else { return }
-        sessionManager.pause(session: session)
+        sessionManager.save(session: session)
         pop()
     }
     
