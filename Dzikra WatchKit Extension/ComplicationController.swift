@@ -39,7 +39,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         // The data to show up there
         guard
-            let aSessionData = UserDefaults.standard.value(forKey: KEY_SESSION) as? Data,
+            let aSessionData = UserDefaults.standard.value(forKey: KEY_ACTIVE_SESSION) as? Data,
             let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
         else { handler(nil); return }
         

@@ -92,7 +92,7 @@ class DzikraInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        if let lastSessionData = UserDefaults.standard.value(forKey: KEY_SESSION) as? Data {
+        if let lastSessionData = UserDefaults.standard.value(forKey: KEY_ACTIVE_SESSION) as? Data {
             // resume an active session
             if let lastSession = try? JSONDecoder().decode(DzikrSession.self, from: lastSessionData) {
                 
@@ -145,11 +145,11 @@ class DzikraInterfaceController: WKInterfaceController {
         if let sessionToSave = activeSession {
             print("saving session")
             if let sessionData = try? JSONEncoder().encode(sessionToSave) {
-                UserDefaults.standard.setValue(sessionData, forKey: KEY_SESSION)
+                UserDefaults.standard.setValue(sessionData, forKey: KEY_ACTIVE_SESSION)
             }
         } else {
             print("clearing the session")
-            UserDefaults.standard.removeObject(forKey: KEY_SESSION)
+            UserDefaults.standard.removeObject(forKey: KEY_ACTIVE_SESSION)
         }
         
         CLKComplicationServer.sharedInstance().activeComplications?.forEach { each in
