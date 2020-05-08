@@ -74,7 +74,7 @@ class HomeInterfaceControler: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        sessionManager.resume(completion: { (pausedSession: DzikrSession?) in
+        sessionManager.load(completion: { (pausedSession: DzikrSession?) in
             
             if pausedSession != nil {
                 // show paused session

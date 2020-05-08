@@ -10,7 +10,7 @@ import Foundation
 
 protocol SessionManager {
     func save(session: DzikrSession)
-    func resume(completion: @escaping (DzikrSession?) -> Void)
+    func load(completion: @escaping (DzikrSession?) -> Void)
     func clear()
 }
 
@@ -30,7 +30,7 @@ class UserDefaultsSessionManager: SessionManager {
         }
     }
     
-    func resume(completion: @escaping (DzikrSession?) -> Void) {
+    func load(completion: @escaping (DzikrSession?) -> Void) {
         
         do {
             
