@@ -9,3 +9,4 @@
 let DEFAULT_DZIKR_NAME = "Dzikr"
 
 let KEY_SESSION = "session"
+let KEY_PAUSED_SESSION = "pausedSession"

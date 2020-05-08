@@ -17,13 +17,12 @@ protocol SessionManager {
 class UserDefaultsSessionManager: SessionManager {
     
     let storage = UserDefaults.standard
-    let key = "pausedSession"
     
     func save(session: DzikrSession) {
         
         do {
             let data = try JSONEncoder().encode(session)
-            storage.set(data, forKey: key)
+            storage.set(data, forKey: KEY_PAUSED_SESSION)
             
         } catch {
             print(error)
@@ -34,7 +33,7 @@ class UserDefaultsSessionManager: SessionManager {
         
         do {
             
-            if let data = storage.value(forKey: key) as? Data {
+            if let data = storage.value(forKey: KEY_PAUSED_SESSION) as? Data {
                 
                 let session = try JSONDecoder().decode(DzikrSession.self, from: data)
                 completion(session)
@@ -49,6 +48,6 @@ class UserDefaultsSessionManager: SessionManager {
     }
     
     func clear() {
-        storage.removeObject(forKey: key)
+        storage.removeObject(forKey: KEY_PAUSED_SESSION)
     }
 }
