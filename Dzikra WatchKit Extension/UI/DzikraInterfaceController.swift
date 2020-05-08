@@ -53,7 +53,7 @@ class DzikraInterfaceController: WKInterfaceController {
     
     var activeSession: DzikrSession?
     var tobeContinuedSession: DzikrSession?
-    let sessionManager: SessionManager = UserDefaultsSessionManager()
+    let sessionManager: SessionManager = ContinueLaterSessionManager()
     let activeSessionManager: SessionManager = ActiveSessionManager()
     
     private var maxValue: Int = 10

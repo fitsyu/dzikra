@@ -77,7 +77,7 @@ class HomeInterfaceControler: WKInterfaceController {
         sessionManager.clear()
     }
     
-    let sessionManager: SessionManager = UserDefaultsSessionManager()
+    let sessionManager: SessionManager = ContinueLaterSessionManager()
     var sessionToContinue: DzikrSession?
     override func willActivate() {
         super.willActivate()
