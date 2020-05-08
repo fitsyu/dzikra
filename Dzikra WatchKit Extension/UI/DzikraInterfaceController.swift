@@ -143,12 +143,10 @@ class DzikraInterfaceController: WKInterfaceController {
         super.didDeactivate()
         
         if let sessionToSave = activeSession {
-            print("saving session")
             if let sessionData = try? JSONEncoder().encode(sessionToSave) {
                 UserDefaults.standard.setValue(sessionData, forKey: KEY_ACTIVE_SESSION)
             }
         } else {
-            print("clearing the session")
             UserDefaults.standard.removeObject(forKey: KEY_ACTIVE_SESSION)
         }
         
