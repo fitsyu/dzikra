@@ -15,6 +15,8 @@ protocol CustomLimitDelegate: class {
 
 class CustomLimitInterfaceController: WKInterfaceController {
     
+    static let ID = "CustomLimit"
+    
     private var textInput: String?
     
     private var numberInput: Int?

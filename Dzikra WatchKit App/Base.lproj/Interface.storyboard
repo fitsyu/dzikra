@@ -13,7 +13,7 @@
                     <items>
                         <table alignment="left" id="IHF-7X-cUV">
                             <items>
-                                <tableRow identifier="RC1" id="6Jm-iu-2uZ" customClass="DzikrItemSetRowController" customModule="Dzikra">
+                                <tableRow identifier="DzikrItem" id="6Jm-iu-2uZ" customClass="DzikrItemSetRowController" customModule="Dzikra">
                                     <group key="rootItem" width="1" alignment="left" layout="overlap" id="FXc-eH-hyx">
                                         <items>
                                             <group width="0.69999999999999996" alignment="left" layout="vertical" id="lln-a4-0q3">

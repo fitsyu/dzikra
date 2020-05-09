@@ -11,6 +11,8 @@ import WatchKit
 // Like UITableViewCell
 class DzikrItemSetRowController: NSObject {
     
+    static let ID = "DzikrItem"
+    
     @IBOutlet weak var titleLabel: WKInterfaceLabel!
     @IBOutlet weak var subTitleLabel: WKInterfaceLabel!
     @IBOutlet weak var countLabel: WKInterfaceLabel!

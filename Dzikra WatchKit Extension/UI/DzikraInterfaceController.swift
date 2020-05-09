@@ -10,6 +10,8 @@ import WatchKit
 
 class DzikraInterfaceController: WKInterfaceController {
     
+    static let ID = "Dzikra"
+    
     // MARK: Outlets
     @IBOutlet weak var kalimahThoyyibahLabel: WKInterfaceLabel!
     @IBOutlet weak var loopLabel: WKInterfaceLabel!

@@ -10,6 +10,8 @@ import WatchKit
 
 class DzikrSetTableInterfaceController: WKInterfaceController {
     
+    static let ID = "DzikrSetTable"
+    
     @IBOutlet weak var tableView: WKInterfaceTable!
     
     override func awake(withContext context: Any?) {
@@ -23,7 +25,7 @@ class DzikrSetTableInterfaceController: WKInterfaceController {
     
     override func willActivate() {
         
-        let rc1s = setOfDzikr.map { _ in "RC1" }
+        let rc1s = setOfDzikr.map { _ in DzikrItemSetRowController.ID }
         
         tableView.setRowTypes( rc1s  )
         
@@ -52,6 +54,6 @@ class DzikrSetTableInterfaceController: WKInterfaceController {
         
         let newDzikrSession = setOfDzikr[rowIndex]
         
-        pushController(withName: "Dzikra", context: newDzikrSession)
+        pushController(withName: DzikraInterfaceController.ID, context: newDzikrSession)
     }
 }

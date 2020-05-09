@@ -26,14 +26,14 @@ import WatchKit
  */
 class HomeInterfaceControler: WKInterfaceController {
     
-    
+    static let ID = "Home"
 
     @IBAction func quick7buttonTap() {
         let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
             kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 7)
-        pushController(withName: "Dzikra", context: session)
+        pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     
     @IBAction func quick33buttonTap() {
@@ -41,7 +41,7 @@ class HomeInterfaceControler: WKInterfaceController {
                                    kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 33)
-        pushController(withName: "Dzikra", context: session)
+        pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     
     @IBAction func quick100buttonTap() {
@@ -49,19 +49,19 @@ class HomeInterfaceControler: WKInterfaceController {
                                    kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 100)
-        pushController(withName: "Dzikra", context: session)
+        pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     
     @IBAction func postPrayerDzikrButtonTap() {
-        pushController(withName: "DzikrSetTable", context: BuiltinDzikrSet.PostPrayer)
+        pushController(withName: DzikrSetTableInterfaceController.ID, context: BuiltinDzikrSet.PostPrayer)
     }
     
     @IBAction func dailyDzikrButtonTap() {
-        pushController(withName: "DzikrSetTable", context: BuiltinDzikrSet.Daily)
+        pushController(withName: DzikrSetTableInterfaceController.ID, context: BuiltinDzikrSet.Daily)
     }
     
     @IBAction func customDzikrButtonTap() {
-        presentController(withName: "CustomLimit", context: self)
+        presentController(withName: CustomLimitInterfaceController.ID, context: self)
     }
     
     // MARK: LifeCycle
@@ -72,7 +72,7 @@ class HomeInterfaceControler: WKInterfaceController {
         
         guard let pausedSession = sessionToContinue else { return }
         
-        pushController(withName: "Dzikra", context: pausedSession)
+        pushController(withName: DzikraInterfaceController.ID, context: pausedSession)
         
         sessionManager.clear()
     }
@@ -101,7 +101,7 @@ extension HomeInterfaceControler: CustomLimitDelegate {
         
         completion()
         
-        self.pushController(withName: "Dzikra", context: session)
+        self.pushController(withName: DzikraInterfaceController.ID, context: session)
     }
 }
 
