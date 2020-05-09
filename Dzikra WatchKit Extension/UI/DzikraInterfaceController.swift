@@ -138,10 +138,15 @@ class DzikraInterfaceController: WKInterfaceController {
         tobeContinuedSession?.currentValue = currentValue
         tobeContinuedSession?.round = currentLoop
         
+        let text = activeSession?.kalimahThoyyibah ?? ""
+        let font = UIFont.systemFont(ofSize: 15)
+        if isTruncated(text: text, width: contentFrame.width, font: font, numOfLines: 1) {
+            
+            kalimahThoyyibahLabel.stopTimer()
+        }
+        
         // clear session
         activeSession = nil
-        
-        kalimahThoyyibahLabel.stopTimer()
     }
     
     // called when crown is tapped & also after willDisapper
