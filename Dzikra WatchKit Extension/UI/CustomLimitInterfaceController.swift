@@ -85,10 +85,10 @@ class CustomLimitInterfaceController: WKInterfaceController {
     // MARK: OK BUTTON
     @IBAction func buttonOK_tap() {
         
-        let dzikr = textInput ?? "Dzikr"
+        let dzikr = textInput ?? DEFAULT_DZIKR_NAME
         guard let count = numberInput else { return }
         
-        let session = DzikrSession(dzikrName: "",
+        let session = DzikrSession(dzikrName: dzikr,
                                    kalimahThoyyibah: dzikr,
                                    currentValue: 0,
                                    limit: count,

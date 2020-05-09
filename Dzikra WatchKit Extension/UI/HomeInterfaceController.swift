@@ -29,24 +29,24 @@ class HomeInterfaceControler: WKInterfaceController {
     
 
     @IBAction func quick7buttonTap() {
-        let session = DzikrSession(dzikrName: "",
-            kalimahThoyyibah: "Dzikr",
+        let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
+            kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 7)
         pushController(withName: "Dzikra", context: session)
     }
     
     @IBAction func quick33buttonTap() {
-        let session = DzikrSession(dzikrName: "",
-                                   kalimahThoyyibah: "Dzikr",
+        let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
+                                   kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 33)
         pushController(withName: "Dzikra", context: session)
     }
     
     @IBAction func quick100buttonTap() {
-        let session = DzikrSession(dzikrName: "",
-                                   kalimahThoyyibah: "Dzikr",
+        let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
+                                   kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
                                    limit: 100)
         pushController(withName: "Dzikra", context: session)
