@@ -52,6 +52,18 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func makeTimelineEntry(for session: DzikrSession, complication: CLKComplication) -> CLKComplicationTimelineEntry {
         
+        // The data to show up there
+        guard
+            let aSessionData = UserDefaults.standard.value(forKey: "session") as? Data,
+            let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
+            else {
+                
+                let noSessionEntry = makeNoSessionTemplateEntry(for: complication)
+                handler(noSessionEntry)
+                return
+        }
+        
+        
         let currentValue: Int = session.currentValue
         let maxValue: Int = session.limit ?? 0
         let color: UIColor
@@ -215,6 +227,145 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         // Call the handler with the timeline entries after to the given date
         handler(nil)
+    }
+    
+    func makeNoSessionTemplateEntry(for complication: CLKComplication) -> CLKComplicationTimelineEntry {
+        
+        let theDzikrOneLetterBrand = CLKSimpleTextProvider(text: "ذ")
+        let theDzikrLetterBrand = CLKSimpleTextProvider(text: "Dzikra")
+        let noActiveSessionText = CLKSimpleTextProvider(text: "No active session")
+        let fillFraction: Float = 0
+        let ringStyle = CLKComplicationRingStyle.closed
+        let tintColor = UIColor.white
+        
+        var theTemplate: CLKComplicationTemplate
+        switch complication.family {
+        case .circularSmall:
+            let template = CLKComplicationTemplateCircularSmallRingText()
+            
+            template.textProvider = theDzikrOneLetterBrand
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .extraLarge:
+            let template = CLKComplicationTemplateExtraLargeRingText()
+            
+            template.textProvider = theDzikrOneLetterBrand
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .modularSmall:
+            let template = CLKComplicationTemplateModularSmallRingText()
+            
+            template.textProvider = theDzikrOneLetterBrand
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .modularLarge:
+            let template = CLKComplicationTemplateModularLargeTable()
+            
+            template.headerTextProvider = theDzikrLetterBrand
+            template.row1Column1TextProvider = theDzikrOneLetterBrand
+            template.row1Column2TextProvider = noActiveSessionText
+            template.row2Column1TextProvider = theDzikrOneLetterBrand
+            template.row2Column2TextProvider = noActiveSessionText
+            
+            theTemplate = template
+            
+        case .utilitarianSmall:
+            let template = CLKComplicationTemplateUtilitarianSmallRingText()
+            
+            template.textProvider = theDzikrOneLetterBrand
+            template.fillFraction = fillFraction
+            template.ringStyle = ringStyle
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .utilitarianSmallFlat:
+            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+            
+            template.textProvider = theDzikrLetterBrand
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .utilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            
+            template.textProvider = noActiveSessionText
+            template.tintColor = tintColor
+            
+            theTemplate = template
+            
+        case .graphicCorner:
+            let template = CLKComplicationTemplateGraphicCornerGaugeText()
+            
+            template.outerTextProvider = noActiveSessionText
+            template.leadingTextProvider = theDzikrOneLetterBrand
+            template.trailingTextProvider = theDzikrOneLetterBrand
+            
+            let gaugeColor = tintColor
+            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: gaugeColor, fillFraction: fillFraction)
+            
+            theTemplate = template
+            
+        case .graphicCircular:
+            let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            
+            template.centerTextProvider = theDzikrOneLetterBrand
+            let gaugeColor = tintColor
+            template.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
+                                                            gaugeColor: gaugeColor,
+                                                            fillFraction: fillFraction)
+            
+            theTemplate = template
+            
+        case .graphicBezel:
+            let template = CLKComplicationTemplateGraphicBezelCircularText()
+            
+            let topTextProvider = noActiveSessionText
+            topTextProvider.tintColor = tintColor
+            template.textProvider = topTextProvider
+            
+            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            
+            circularTemplate.centerTextProvider = theDzikrOneLetterBrand
+            let gaugeColor = tintColor
+            circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
+                                                                    gaugeColor: gaugeColor,
+                                                                    fillFraction: fillFraction)
+            template.circularTemplate = circularTemplate
+            
+            theTemplate = template
+            
+        case .graphicRectangular:
+            let template = CLKComplicationTemplateGraphicRectangularTextGauge()
+            
+            template.headerTextProvider = theDzikrLetterBrand
+            
+            
+            template.body1TextProvider = noActiveSessionText
+            
+            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill,
+                                                            gaugeColor: tintColor,
+                                                            fillFraction: fillFraction)
+            theTemplate = template
+        default:
+            theTemplate = CLKComplicationTemplateModularSmallSimpleText()
+        }
+        
+        let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: theTemplate)
+        return entry
     }
     
     // MARK: - Placeholder Templates
