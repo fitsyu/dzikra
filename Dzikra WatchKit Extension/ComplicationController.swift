@@ -41,7 +41,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         activeSessionManager.load(completion: { activeSession in
             
             guard let session = activeSession else {
-                handler(nil)
+                let noSessionEntry = self.makeNoSessionTemplateEntry(for: complication)
+                handler(noSessionEntry)
                 return
             }
             
@@ -51,18 +52,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func makeTimelineEntry(for session: DzikrSession, complication: CLKComplication) -> CLKComplicationTimelineEntry {
-        
-        // The data to show up there
-        guard
-            let aSessionData = UserDefaults.standard.value(forKey: "session") as? Data,
-            let session = try? JSONDecoder().decode(DzikrSession.self, from: aSessionData)
-            else {
-                
-                let noSessionEntry = makeNoSessionTemplateEntry(for: complication)
-                handler(noSessionEntry)
-                return
-        }
-        
         
         let currentValue: Int = session.currentValue
         let maxValue: Int = session.limit ?? 0
