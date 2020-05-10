@@ -14,5 +14,6 @@ struct DzikrSession: Codable {
     var kalimahThoyyibah: String
     var currentValue: Int
     var limit: Int? // nil means no limit
+    var round: Int
     var color: String?
 }

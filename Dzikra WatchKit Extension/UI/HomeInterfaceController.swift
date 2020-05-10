@@ -32,7 +32,8 @@ class HomeInterfaceControler: WKInterfaceController {
         let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
             kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
-                                   limit: 7)
+                                   limit: 7,
+                                   round: 1)
         pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     
@@ -40,7 +41,8 @@ class HomeInterfaceControler: WKInterfaceController {
         let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
                                    kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
-                                   limit: 33)
+                                   limit: 33,
+                                   round: 1)
         pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     
@@ -48,7 +50,8 @@ class HomeInterfaceControler: WKInterfaceController {
         let session = DzikrSession(dzikrName: DEFAULT_DZIKR_NAME,
                                    kalimahThoyyibah: DEFAULT_DZIKR_NAME,
                                    currentValue: 0,
-                                   limit: 100)
+                                   limit: 100,
+                                   round: 1)
         pushController(withName: DzikraInterfaceController.ID, context: session)
     }
     

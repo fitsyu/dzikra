@@ -136,7 +136,7 @@ class DzikraInterfaceController: WKInterfaceController {
         
         // update potential session to pause
         tobeContinuedSession?.currentValue = currentValue
-        //        continueLaterSession?.roundValue
+        tobeContinuedSession?.round = currentLoop
         
         // clear session
         activeSession = nil
@@ -179,6 +179,8 @@ class DzikraInterfaceController: WKInterfaceController {
             let color = UIColor(hex: hex)
             kalimahThoyyibahLabel.setTextColor(color)
         }
+        
+        loopLabel.setText("\(session.round)")
         
         tobeContinuedSession = session
     }

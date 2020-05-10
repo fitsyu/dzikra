@@ -94,6 +94,7 @@ class CustomLimitInterfaceController: WKInterfaceController {
                                    kalimahThoyyibah: dzikr,
                                    currentValue: 0,
                                    limit: count,
+                                   round: 1,
                                    color: nil)
         delegate?.didSetSession(session: session, completion: {
             self.dismiss()
