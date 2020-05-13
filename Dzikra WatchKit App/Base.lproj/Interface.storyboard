@@ -231,7 +231,7 @@
                                             <gestureRecognizers>
                                                 <tapGestureRecognizer id="mR1-aC-1nA">
                                                     <connections>
-                                                        <action selector="pushButtonPress" destination="90t-sg-akd" id="gC4-kU-km5"/>
+                                                        <action selector="pushButtonTap" destination="90t-sg-akd" id="gC4-kU-km5"/>
                                                     </connections>
                                                 </tapGestureRecognizer>
                                             </gestureRecognizers>

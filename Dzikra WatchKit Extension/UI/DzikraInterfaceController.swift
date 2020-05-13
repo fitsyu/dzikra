@@ -61,7 +61,7 @@ class DzikraInterfaceController: WKInterfaceController {
     private var maxValue: Int = 10
     
     // MARK: Action
-    @IBAction func pushButtonPress() {
+    @IBAction func pushButtonTap() {
         
         currentValue += 1
     }
