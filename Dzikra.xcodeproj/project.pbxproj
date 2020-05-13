@@ -15,6 +15,7 @@
 		E84F83D9244DC71B00B36BA0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83D8244DC71B00B36BA0 /* NotificationController.swift */; };
 		E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84F83DA244DC71B00B36BA0 /* ComplicationController.swift */; };
 		E84F83DD244DC71B00B36BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84F83DC244DC71B00B36BA0 /* Assets.xcassets */; };
+		E8768B6B246B8C2D00940333 /* CurrentValueEditorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8768B6A246B8C2D00940333 /* CurrentValueEditorInterfaceController.swift */; };
 		E878694D2464F76B007A2111 /* DzikrItemSetRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */; };
 		E878694F2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */; };
 		E8786951246500F4007A2111 /* ActiveSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8786950246500F4007A2111 /* ActiveSessionManager.swift */; };
@@ -84,6 +85,7 @@
 		E84F83DC244DC71B00B36BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E84F83DE244DC71B00B36BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E84F83DF244DC71B00B36BA0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E8768B6A246B8C2D00940333 /* CurrentValueEditorInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentValueEditorInterfaceController.swift; sourceTree = "<group>"; };
 		E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrItemSetRowController.swift; sourceTree = "<group>"; };
 		E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DzikrSetTableInterfaceController.swift; sourceTree = "<group>"; };
 		E8786950246500F4007A2111 /* ActiveSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionManager.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */,
 				E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */,
 				E878694E2464FB1D007A2111 /* DzikrSetTableInterfaceController.swift */,
+				E8768B6A246B8C2D00940333 /* CurrentValueEditorInterfaceController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			files = (
 				E84F83D9244DC71B00B36BA0 /* NotificationController.swift in Sources */,
 				E84F83DB244DC71B00B36BA0 /* ComplicationController.swift in Sources */,
+				E8768B6B246B8C2D00940333 /* CurrentValueEditorInterfaceController.swift in Sources */,
 				E8D80CF7245BFAA100EC1B26 /* TextScroll.swift in Sources */,
 				E84F83D7244DC71B00B36BA0 /* ExtensionDelegate.swift in Sources */,
 				E8E4E4DD24552F49002121A1 /* HomeInterfaceController.swift in Sources */,

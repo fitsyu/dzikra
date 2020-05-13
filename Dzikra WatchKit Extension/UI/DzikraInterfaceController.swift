@@ -79,6 +79,12 @@ class DzikraInterfaceController: WKInterfaceController {
         pop()
     }
     
+    @IBAction func editCurrentValueButtonTap() {
+        let context = CurrentValueEditorInterfaceController.Context(currentValue: currentValue,
+                                                                    delegate: self)
+        presentController(withName: "CurrentValueEditor", context: context)
+    }
+    
     // MARK: LifeCycle
     
     override func awake(withContext context: Any?) {
@@ -261,5 +267,12 @@ class DzikraInterfaceController: WKInterfaceController {
         
         let isTruncated = thisNumOfLines > numOfLines
         return isTruncated
+    }
+}
+
+extension DzikraInterfaceController: CurrentValueEditorInterfaceControllerDelegate {
+    
+    func newCurrentValueSet(_ newValue: Int) {
+        currentValue = newValue
     }
 }

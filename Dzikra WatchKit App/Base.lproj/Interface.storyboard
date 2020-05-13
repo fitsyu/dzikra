@@ -244,7 +244,11 @@
                     </items>
                     <menu key="menu" id="cvK-r3-SLT">
                         <items>
-                            <menuItem title="Info" icon="info" id="Blj-ct-aOq"/>
+                            <menuItem title="Edit" icon="shuffle" id="Blj-ct-aOq">
+                                <connections>
+                                    <action selector="editCurrentValueButtonTap" destination="90t-sg-akd" id="dXx-FM-hIP"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Continue Later" icon="more" id="pn9-zb-aBN">
                                 <connections>
                                     <action selector="continueLaterButtonTap" destination="90t-sg-akd" id="Q4N-PT-uNz"/>
@@ -256,11 +260,6 @@
                                 </connections>
                             </menuItem>
                         </items>
-                        <variation key="default">
-                            <mask key="items">
-                                <exclude reference="Blj-ct-aOq"/>
-                            </mask>
-                        </variation>
                     </menu>
                     <connections>
                         <outlet property="contextImage" destination="JTh-zg-n6A" id="onI-1h-9G1"/>
@@ -273,6 +272,47 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="1600" y="318"/>
+        </scene>
+        <!--CurrentValueEditor-->
+        <scene sceneID="k1y-TU-LKX">
+            <objects>
+                <controller identifier="CurrentValueEditor" fullBounds="YES" fullScreen="YES" id="KJa-8k-ojB" customClass="CurrentValueEditorInterfaceController" customModule="Dzikra">
+                    <items>
+                        <label alignment="left" text="Current:" id="ozZ-VE-ja3"/>
+                        <group width="1" alignment="left" spacing="4" id="9dc-Io-5HF">
+                            <items>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="tvt-Qt-zf3">
+                                    <connections>
+                                        <action selector="picker1ActionWithIndex:" destination="KJa-8k-ojB" id="Ymm-go-Uz7"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="JH7-Fe-bmL">
+                                    <connections>
+                                        <action selector="picker2ActionWithIndex:" destination="KJa-8k-ojB" id="Bgb-nb-P7o"/>
+                                    </connections>
+                                </picker>
+                                <picker width="0.29999999999999999" height="1" alignment="center" verticalAlignment="center" focusStyle="stack" id="pu2-hB-GbX">
+                                    <connections>
+                                        <action selector="picker3ActionWithIndex:" destination="KJa-8k-ojB" id="qE3-X7-FUO"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Set" id="LqH-n6-Bwt">
+                            <connections>
+                                <action selector="setButtonTap" destination="KJa-8k-ojB" id="gQO-tE-JHZ"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="currentValueLabel" destination="ozZ-VE-ja3" id="Iec-Eo-J2y"/>
+                        <outlet property="picker1" destination="tvt-Qt-zf3" id="x94-sC-lpw"/>
+                        <outlet property="picker2" destination="JH7-Fe-bmL" id="zGy-x5-1Mj"/>
+                        <outlet property="picker3" destination="pu2-hB-GbX" id="PRi-LS-kiq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1914" y="318"/>
         </scene>
     </scenes>
     <resources>
