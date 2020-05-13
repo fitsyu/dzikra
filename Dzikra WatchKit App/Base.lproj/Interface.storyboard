@@ -228,18 +228,18 @@
                                             <edgeInsets key="margins" left="0.0" right="10" top="0.0" bottom="2"/>
                                         </group>
                                         <label width="0.80000000000000004" height="0.80000000000000004" alignment="left" verticalAlignment="center" text="100" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.5" id="PT0-1N-Y3B">
-                                            <gestureRecognizers>
-                                                <tapGestureRecognizer id="mR1-aC-1nA">
-                                                    <connections>
-                                                        <action selector="pushButtonTap" destination="90t-sg-akd" id="gC4-kU-km5"/>
-                                                    </connections>
-                                                </tapGestureRecognizer>
-                                            </gestureRecognizers>
                                             <fontDescription key="font" type="system" pointSize="50"/>
                                         </label>
                                     </items>
                                 </group>
                             </items>
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="mR1-aC-1nA">
+                                    <connections>
+                                        <action selector="pushButtonTap" destination="90t-sg-akd" id="gC4-kU-km5"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
                         </group>
                     </items>
                     <menu key="menu" id="cvK-r3-SLT">
