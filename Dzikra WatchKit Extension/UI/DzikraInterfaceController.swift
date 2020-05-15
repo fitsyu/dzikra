@@ -42,6 +42,9 @@ class DzikraInterfaceController: WKInterfaceController {
                 WKInterfaceDevice.current().play(.success)
             }
             
+            // TODO: Add option to enable/disable this
+            WKInterfaceDevice.current().play(.click)
+            
             activeSession?.currentValue = currentValue
             
         }
