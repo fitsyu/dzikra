@@ -90,6 +90,10 @@ class DzikraInterfaceController: WKInterfaceController {
         presentController(withName: "CurrentValueEditor", context: context)
     }
     
+    @IBAction func menuButtonTap() {
+        presentController(withName: "SessionMenu", context: self)
+    }
+    
     // MARK: LifeCycle
     
     override func awake(withContext context: Any?) {

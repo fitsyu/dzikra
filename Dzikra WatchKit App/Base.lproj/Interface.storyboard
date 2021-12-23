@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jy7-lN-aIt" pageOrientation="vertical">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jy7-lN-aIt" pageOrientation="vertical">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
     </dependencies>
     <scenes>
         <!--DzikrSetTable-->
@@ -199,14 +199,19 @@
                         <group width="1" height="1" alignment="left" layout="overlap" id="HOp-lF-Tas">
                             <items>
                                 <imageView width="1" height="1" alignment="left" id="JTh-zg-n6A"/>
+                                <button width="20" height="20" alignment="right" backgroundImage="gearshape.circle" catalog="system" id="KjV-pF-jfL">
+                                    <connections>
+                                        <action selector="menuButtonTap" destination="90t-sg-akd" id="D2G-zd-tcC"/>
+                                    </connections>
+                                </button>
                                 <group width="1" alignment="left" layout="vertical" id="aDR-ZT-VPw">
                                     <items>
-                                        <label width="1" alignment="left" text="Kalimah Thoyyibah - Very Long" textAlignment="left" id="5zd-SU-5gn">
+                                        <label width="0.84999999999999998" alignment="left" text="Kalimah Thoyyibah - Very Long" textAlignment="left" id="5zd-SU-5gn">
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="system" pointSize="15"/>
                                         </label>
                                         <label alignment="right" verticalAlignment="center" text="max" textAlignment="right" id="dtm-WT-aMd">
-                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <color key="textColor" systemColor="lightTextColor"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                         </label>
                                     </items>
@@ -242,25 +247,6 @@
                             </gestureRecognizers>
                         </group>
                     </items>
-                    <menu key="menu" id="cvK-r3-SLT">
-                        <items>
-                            <menuItem title="Edit" icon="shuffle" id="Blj-ct-aOq">
-                                <connections>
-                                    <action selector="editCurrentValueButtonTap" destination="90t-sg-akd" id="dXx-FM-hIP"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Continue Later" icon="more" id="pn9-zb-aBN">
-                                <connections>
-                                    <action selector="continueLaterButtonTap" destination="90t-sg-akd" id="Q4N-PT-uNz"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Reset" icon="resume" id="McZ-nN-o7M">
-                                <connections>
-                                    <action selector="resetButtonTap" destination="90t-sg-akd" id="1w4-N0-FlG"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                     <connections>
                         <outlet property="contextImage" destination="JTh-zg-n6A" id="onI-1h-9G1"/>
                         <outlet property="displayLabel" destination="PT0-1N-Y3B" id="owk-WP-JrS"/>
@@ -272,6 +258,36 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="1600" y="318"/>
+        </scene>
+        <!--SessionMenu-->
+        <scene sceneID="6zH-BK-TPo">
+            <objects>
+                <controller identifier="SessionMenu" hidesWhenLoading="NO" fullBounds="YES" id="uCH-gI-IBp" customClass="SessionMenuInterfaceController" customModule="Dzikra">
+                    <items>
+                        <button width="1" alignment="center" title="Save" id="cKu-lO-cXu">
+                            <connections>
+                                <action selector="saveButtonTapped" destination="uCH-gI-IBp" id="n0y-FM-DzL"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Edit" id="sWC-F1-Lod">
+                            <connections>
+                                <action selector="editButtonTapped" destination="uCH-gI-IBp" id="ngy-AR-fxt"/>
+                            </connections>
+                        </button>
+                        <switch width="1" alignment="left" title="Auto" id="EJc-fR-n08">
+                            <connections>
+                                <action selector="autoSwitchTapped:" destination="uCH-gI-IBp" id="bJX-aP-4P8"/>
+                            </connections>
+                        </switch>
+                        <button width="1" alignment="left" title="Auto Config" id="PeV-Of-P89">
+                            <connections>
+                                <action selector="autoConfigTapped" destination="uCH-gI-IBp" id="cPb-1d-B64"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1614" y="760"/>
         </scene>
         <!--CurrentValueEditor-->
         <scene sceneID="k1y-TU-LKX">
@@ -316,6 +332,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle.grid.hex.fill" catalog="system" width="128" height="114"/>
         <image name="progress-0" width="300" height="300"/>
+        <systemColor name="lightTextColor">
+            <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
