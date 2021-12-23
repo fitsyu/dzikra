@@ -7,6 +7,7 @@
 //
 
 import WatchKit
+import ClockKit
 
 class DzikraInterfaceController: WKInterfaceController {
     
@@ -53,6 +54,7 @@ class DzikraInterfaceController: WKInterfaceController {
     var currentLoop: Int = 1 {
         didSet {
             loopLabel.setText("\(currentLoop)")
+            activeSession?.round = currentLoop
         }
     }
     

@@ -8,7 +8,7 @@
 
 import WatchKit
 
-protocol CurrentValueEditorInterfaceControllerDelegate: class {
+protocol CurrentValueEditorInterfaceControllerDelegate: AnyObject {
     func newCurrentValueSet(_ newValue: Int)
 }
 

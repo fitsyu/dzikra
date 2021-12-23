@@ -8,7 +8,7 @@
 
 import WatchKit
 
-protocol CustomLimitDelegate: class {
+protocol CustomLimitDelegate: AnyObject {
     
     func didSetSession(session: DzikrSession, completion: @escaping ()->Void)
 }

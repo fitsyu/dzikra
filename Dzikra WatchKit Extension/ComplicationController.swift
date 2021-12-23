@@ -75,27 +75,31 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var theTemplate: CLKComplicationTemplate
         switch complication.family {
         case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallRingText()
-            
-            template.textProvider = currentValueTextProvider
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateCircularSmallRingText(
+                textProvider: currentValueTextProvider,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .extraLarge:
-            let template = CLKComplicationTemplateExtraLargeRingText()
-            
-            template.textProvider = currentValueTextProvider
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateExtraLargeRingText(
+                textProvider: currentValueTextProvider,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .modularSmall:
-            let template = CLKComplicationTemplateModularSmallRingText()
+            let template = CLKComplicationTemplateModularSmallRingText(
+                textProvider: currentValueTextProvider,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             
             template.textProvider = currentValueTextProvider
             template.fillFraction = fillFraction
@@ -105,101 +109,100 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             theTemplate = template
             
         case .modularLarge:
-            let template = CLKComplicationTemplateModularLargeTable()
-            
-            template.headerTextProvider = CLKSimpleTextProvider(text: session.dzikrName)
-            template.row1Column1TextProvider = CLKSimpleTextProvider(text: percent)
-            template.row1Column2TextProvider = CLKSimpleTextProvider(text: session.kalimahThoyyibah)
-            template.row2Column1TextProvider = CLKSimpleTextProvider(text: "\(currentValue)/\(maxValue)")
-            
             let left = maxValue-currentValue
             let message = left == 0 ? "Selesai" : "\(left) lagi"
-            template.row2Column2TextProvider = CLKSimpleTextProvider(text: message)
-  
+            
+            let template = CLKComplicationTemplateModularLargeTable(
+                headerTextProvider: CLKSimpleTextProvider(text: session.dzikrName),
+                row1Column1TextProvider: CLKSimpleTextProvider(text: percent),
+                row1Column2TextProvider: CLKSimpleTextProvider(text: session.kalimahThoyyibah),
+                row2Column1TextProvider: CLKSimpleTextProvider(text: "\(currentValue)/\(maxValue)"),
+                row2Column2TextProvider: CLKSimpleTextProvider(text: message)
+            )
+            
             theTemplate = template
             
         case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            
-            template.textProvider = currentValueTextProvider
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateUtilitarianSmallRingText(
+                textProvider: currentValueTextProvider,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .utilitarianSmallFlat:
-            let template = CLKComplicationTemplateUtilitarianSmallFlat()
-            
             let prefix = session.kalimahThoyyibah.prefix(2)
-            template.textProvider = CLKSimpleTextProvider(text: "\(currentValue) \(prefix)")
+            let template = CLKComplicationTemplateUtilitarianSmallFlat(
+                textProvider: CLKSimpleTextProvider(text: "\(currentValue) \(prefix)")
+            )
+            
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            
-            template.textProvider = CLKSimpleTextProvider(text: "\(percent) \(session.kalimahThoyyibah)")
+            let template = CLKComplicationTemplateUtilitarianLargeFlat(
+                textProvider: CLKSimpleTextProvider(text: "\(percent) \(session.kalimahThoyyibah)")
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .graphicCorner:
-            let template = CLKComplicationTemplateGraphicCornerGaugeText()
-            
-            template.outerTextProvider = CLKSimpleTextProvider(text: session.kalimahThoyyibah)
-            template.leadingTextProvider = currentValueTextProvider
-            template.trailingTextProvider = CLKSimpleTextProvider(text: "\(maxValue)")
-            
-            let gaugeColor = tintColor
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: gaugeColor, fillFraction: fillFraction)
+            let template = CLKComplicationTemplateGraphicCornerGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .fill, gaugeColor: tintColor, fillFraction: fillFraction),
+                leadingTextProvider: currentValueTextProvider,
+                trailingTextProvider: CLKSimpleTextProvider(text: "\(maxValue)"),
+                outerTextProvider: CLKSimpleTextProvider(text: session.kalimahThoyyibah)
+            )
             
             theTemplate = template
             
         case .graphicCircular:
-            let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
-            
-            template.centerTextProvider = currentValueTextProvider
-            let gaugeColor = tintColor
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
-                                                            gaugeColor: gaugeColor,
-                                                            fillFraction: fillFraction)
+            let template = CLKComplicationTemplateGraphicCircularClosedGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .ring,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction),
+                centerTextProvider: currentValueTextProvider
+            )
             
             theTemplate = template
             
         case .graphicBezel:
-            let template = CLKComplicationTemplateGraphicBezelCircularText()
+            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .ring,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction),
+                centerTextProvider: currentValueTextProvider
+            )
             
             let topTextProvider = CLKSimpleTextProvider(text: "\(percent) - \(session.kalimahThoyyibah)")
             topTextProvider.tintColor = tintColor
-            template.textProvider = topTextProvider
             
-            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
-            
-            circularTemplate.centerTextProvider = currentValueTextProvider
-            let gaugeColor = tintColor
-            circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
-                                                                    gaugeColor: gaugeColor,
-                                                                    fillFraction: fillFraction)
-            template.circularTemplate = circularTemplate
+            let template = CLKComplicationTemplateGraphicBezelCircularText(
+                circularTemplate: circularTemplate,
+                textProvider: topTextProvider
+            )
             
             theTemplate = template
             
         case .graphicRectangular:
-            let template = CLKComplicationTemplateGraphicRectangularTextGauge()
-            
             let header = session.kalimahThoyyibah
-            template.headerTextProvider = CLKSimpleTextProvider(text: header)
-            
             let lagi = "\((maxValue )-currentValue) Lagi"
-            template.body1TextProvider = CLKSimpleTextProvider(text: "\(percent), \(lagi).")
+            let template = CLKComplicationTemplateGraphicRectangularTextGauge(
+                headerTextProvider: CLKSimpleTextProvider(text: header),
+                body1TextProvider: CLKSimpleTextProvider(text: "\(percent), \(lagi)."),
+                gaugeProvider: CLKSimpleGaugeProvider(style: .fill,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction)
+            )
             
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill,
-                                                            gaugeColor: tintColor,
-                                                            fillFraction: fillFraction)
             theTemplate = template
             
+        case .graphicExtraLarge:
+            fallthrough
         @unknown default:
             return CLKComplicationTimelineEntry()
         }
@@ -230,127 +233,127 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var theTemplate: CLKComplicationTemplate
         switch complication.family {
         case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallRingText()
-            
-            template.textProvider = theDzikrOneLetterBrand
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateCircularSmallRingText(
+                textProvider: theDzikrOneLetterBrand,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .extraLarge:
-            let template = CLKComplicationTemplateExtraLargeRingText()
-            
-            template.textProvider = theDzikrOneLetterBrand
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateExtraLargeRingText(
+                textProvider: theDzikrOneLetterBrand,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .modularSmall:
-            let template = CLKComplicationTemplateModularSmallRingText()
-            
-            template.textProvider = theDzikrOneLetterBrand
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateModularSmallRingText(
+                textProvider: theDzikrOneLetterBrand,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .modularLarge:
-            let template = CLKComplicationTemplateModularLargeTable()
-            
-            template.headerTextProvider = theDzikrLetterBrand
-            template.row1Column1TextProvider = theDzikrOneLetterBrand
-            template.row1Column2TextProvider = noActiveSessionText
-            template.row2Column1TextProvider = theDzikrOneLetterBrand
-            template.row2Column2TextProvider = noActiveSessionText
+            let template = CLKComplicationTemplateModularLargeTable(
+                headerTextProvider: theDzikrOneLetterBrand,
+                row1Column1TextProvider: theDzikrOneLetterBrand,
+                row1Column2TextProvider: noActiveSessionText,
+                row2Column1TextProvider: theDzikrOneLetterBrand,
+                row2Column2TextProvider: noActiveSessionText
+            )
             
             theTemplate = template
             
         case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            
-            template.textProvider = theDzikrOneLetterBrand
-            template.fillFraction = fillFraction
-            template.ringStyle = ringStyle
+            let template = CLKComplicationTemplateUtilitarianSmallRingText(
+                textProvider: theDzikrOneLetterBrand,
+                fillFraction: fillFraction,
+                ringStyle: ringStyle
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .utilitarianSmallFlat:
-            let template = CLKComplicationTemplateUtilitarianSmallFlat()
-            
-            template.textProvider = theDzikrLetterBrand
+            let template = CLKComplicationTemplateUtilitarianSmallFlat(
+                textProvider: theDzikrOneLetterBrand
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            
-            template.textProvider = noActiveSessionText
+            let template = CLKComplicationTemplateUtilitarianLargeFlat(
+                textProvider: noActiveSessionText
+            )
             template.tintColor = tintColor
             
             theTemplate = template
             
         case .graphicCorner:
-            let template = CLKComplicationTemplateGraphicCornerGaugeText()
-            
-            template.outerTextProvider = noActiveSessionText
-            template.leadingTextProvider = theDzikrOneLetterBrand
-            template.trailingTextProvider = theDzikrOneLetterBrand
-            
-            let gaugeColor = tintColor
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill, gaugeColor: gaugeColor, fillFraction: fillFraction)
+            let template = CLKComplicationTemplateGraphicCornerGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .fill,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction),
+                leadingTextProvider: theDzikrOneLetterBrand,
+                trailingTextProvider: theDzikrOneLetterBrand,
+                outerTextProvider: noActiveSessionText
+            )
             
             theTemplate = template
             
         case .graphicCircular:
-            let template = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            let template = CLKComplicationTemplateGraphicCircularClosedGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .ring,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction),
+                centerTextProvider: theDzikrOneLetterBrand
+            )
             
-            template.centerTextProvider = theDzikrOneLetterBrand
-            let gaugeColor = tintColor
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
-                                                            gaugeColor: gaugeColor,
-                                                            fillFraction: fillFraction)
+            
             
             theTemplate = template
             
         case .graphicBezel:
-            let template = CLKComplicationTemplateGraphicBezelCircularText()
-            
             let topTextProvider = noActiveSessionText
             topTextProvider.tintColor = tintColor
-            template.textProvider = topTextProvider
             
-            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+            let circularTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText(
+                gaugeProvider: CLKSimpleGaugeProvider(style: .ring,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction),
+                centerTextProvider: theDzikrOneLetterBrand
+            )
             
-            circularTemplate.centerTextProvider = theDzikrOneLetterBrand
-            let gaugeColor = tintColor
-            circularTemplate.gaugeProvider = CLKSimpleGaugeProvider(style: .ring,
-                                                                    gaugeColor: gaugeColor,
-                                                                    fillFraction: fillFraction)
-            template.circularTemplate = circularTemplate
+            let template = CLKComplicationTemplateGraphicBezelCircularText(
+                circularTemplate: circularTemplate,
+                textProvider: topTextProvider
+            )
             
             theTemplate = template
             
         case .graphicRectangular:
-            let template = CLKComplicationTemplateGraphicRectangularTextGauge()
-            
-            template.headerTextProvider = theDzikrLetterBrand
-            
-            
-            template.body1TextProvider = noActiveSessionText
-            
-            template.gaugeProvider = CLKSimpleGaugeProvider(style: .fill,
-                                                            gaugeColor: tintColor,
-                                                            fillFraction: fillFraction)
+            let template = CLKComplicationTemplateGraphicRectangularTextGauge(
+                headerTextProvider: theDzikrLetterBrand,
+                body1TextProvider: noActiveSessionText,
+                gaugeProvider: CLKSimpleGaugeProvider(style: .fill,
+                                                      gaugeColor: tintColor,
+                                                      fillFraction: fillFraction)
+            )
             theTemplate = template
         default:
-            theTemplate = CLKComplicationTemplateModularSmallSimpleText()
+            theTemplate = CLKComplicationTemplateModularSmallSimpleText(
+                textProvider: theDzikrOneLetterBrand
+            )
         }
         
         let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: theTemplate)
