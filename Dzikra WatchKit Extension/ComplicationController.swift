@@ -11,6 +11,10 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    // MARK: Properties
+    
+    let activeSessionManager = ActiveSessionManager()
+    
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -33,8 +37,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Population
     
-    let activeSessionManager = ActiveSessionManager()
-    
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
         
@@ -50,6 +52,30 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(entry)
         })
     }
+    
+    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
+        // Call the handler with the timeline entries prior to the given date
+        handler(nil)
+    }
+    
+    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
+        // Call the handler with the timeline entries after to the given date
+        handler(nil)
+    }
+    
+    // MARK: - Placeholder Templates
+    
+    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+        // This method will be called once per supported complication, and the results will be cached
+        
+        handler(nil)
+    }
+    
+}
+
+// MARK: Helper
+
+extension ComplicationController {
     
     func makeTimelineEntry(for session: DzikrSession, complication: CLKComplication) -> CLKComplicationTimelineEntry {
         
@@ -211,16 +237,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return entry
     }
     
-    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries prior to the given date
-        handler(nil)
-    }
-    
-    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries after to the given date
-        handler(nil)
-    }
-    
     func makeNoSessionTemplateEntry(for complication: CLKComplication) -> CLKComplicationTimelineEntry {
         
         let theDzikrOneLetterBrand = CLKSimpleTextProvider(text: "ذ")
@@ -229,6 +245,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let fillFraction: Float = 0
         let ringStyle = CLKComplicationRingStyle.closed
         let tintColor = UIColor.white
+        
+        
         
         var theTemplate: CLKComplicationTemplate
         switch complication.family {
@@ -359,13 +377,4 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: theTemplate)
         return entry
     }
-    
-    // MARK: - Placeholder Templates
-    
-    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        // This method will be called once per supported complication, and the results will be cached
-        
-        handler(nil)
-    }
-    
 }
