@@ -289,6 +289,47 @@
             </objects>
             <point key="canvasLocation" x="1614" y="760"/>
         </scene>
+        <!--AutoConfigInterfaceController-->
+        <scene sceneID="WTr-jg-dl7">
+            <objects>
+                <controller identifier="AutoConfigInterfaceController" id="m9G-gb-L3J" customClass="AutoConfigInterfaceController" customModule="Dzikra">
+                    <items>
+                        <group width="1" height="0.29999999999999999" alignment="left" id="fyd-Qx-DKv">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="Steps:" id="wMV-q4-k9n"/>
+                                <picker width="0.40000000000000002" height="1" alignment="right" verticalAlignment="center" focusStyle="stack" id="Tsl-uA-J5K">
+                                    <connections>
+                                        <action selector="stepsPickerActionWithIndex:" destination="m9G-gb-L3J" id="j1F-W4-SYL"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <group width="1" height="0.29999999999999999" alignment="left" id="NSj-zd-zs0">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="Interval:" id="wMO-6e-W0F"/>
+                                <picker width="0.40000000000000002" height="1" alignment="right" verticalAlignment="center" focusStyle="stack" id="YHx-N8-gEe">
+                                    <connections>
+                                        <action selector="intervalPickerActionWithIndex:" destination="m9G-gb-L3J" id="GaO-hs-6ca"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Apply" id="mth-09-dR0">
+                            <connections>
+                                <action selector="applyButtonTapped" destination="m9G-gb-L3J" id="Jdl-EO-8Mi"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="intervalLabel" destination="wMO-6e-W0F" id="08c-ZJ-P3g"/>
+                        <outlet property="intervalPicker" destination="YHx-N8-gEe" id="FIK-2i-CJc"/>
+                        <outlet property="stepsLabel" destination="wMV-q4-k9n" id="2yO-sZ-Z6A"/>
+                        <outlet property="stepsPicker" destination="Tsl-uA-J5K" id="eAl-nS-nNN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1900" y="727"/>
+        </scene>
         <!--CurrentValueEditor-->
         <scene sceneID="k1y-TU-LKX">
             <objects>
@@ -332,7 +373,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle.grid.hex.fill" catalog="system" width="128" height="114"/>
+        <image name="gearshape.circle" catalog="system" width="128" height="121"/>
         <image name="progress-0" width="300" height="300"/>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

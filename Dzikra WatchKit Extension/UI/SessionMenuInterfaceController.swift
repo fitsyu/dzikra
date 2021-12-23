@@ -44,3 +44,9 @@ class SessionMenuInterfaceController: WKInterfaceController {
         self.delegate = context as? SessionMenuInterfaceControllerDelegate
     }
 }
+
+extension SessionMenuInterfaceController: AutoConfigInterfaceControllerDelegate {
+    func didUpdateConfig(config: AutoConfig) {
+        self.autoConfig = config
+    }
+}

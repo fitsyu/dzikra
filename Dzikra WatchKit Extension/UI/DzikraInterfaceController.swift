@@ -6,6 +6,7 @@
 //  Copyright © 2020 Fitsyu . All rights reserved.
 //
 
+import CoreMotion
 import WatchKit
 import ClockKit
 
@@ -64,6 +65,9 @@ class DzikraInterfaceController: WKInterfaceController {
     let activeSessionManager: SessionManager = ActiveSessionManager()
     
     private var maxValue: Int = 10
+    
+    private let pedometer = CMPedometer()
+    private var countedSteps: Int = 0
     
     // MARK: Action
     @IBAction func pushButtonTap() {
@@ -162,6 +166,8 @@ class DzikraInterfaceController: WKInterfaceController {
         
         // clear session
         activeSession = nil
+        
+        pedometer.stopUpdates()
     }
     
     // called when crown is tapped & also after willDisapper
@@ -283,5 +289,37 @@ extension DzikraInterfaceController: CurrentValueEditorInterfaceControllerDelega
     
     func newCurrentValueSet(_ newValue: Int) {
         currentValue = newValue
+    }
+}
+
+extension DzikraInterfaceController: SessionMenuInterfaceControllerDelegate {
+    func pleaseSave() {
+        continueLaterButtonTap()
+    }
+    
+    func pleaseEdit() {
+        editCurrentValueButtonTap()
+    }
+    
+    func pleaseDoAutoCount(using config: AutoConfig) {
+        pedometer.startUpdates(from: Date(), withHandler: { data, error in
+            guard error == nil, let data = data else { return }
+            
+            self.countedSteps = data.numberOfSteps.intValue //+ (self.savedCountedSteps ?? 0)
+            
+            let stepsRequired = config.steps
+            let interval = config.interfval
+            let countedWords = data.numberOfSteps.floatValue / Float(stepsRequired + interval) + Float(self.currentValue) //+ (self.savedCountedWords ?? 0)
+//            self.countedWords = countedWords
+            
+            DispatchQueue.main.async {
+                self.currentValue = Int(countedWords)
+            }
+            
+        })
+    }
+    
+    func pleaseDoNotAutoCount() {
+        pedometer.stopUpdates()
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E826FE00277460410005038C /* SessionMenuInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E826FDFF277460410005038C /* SessionMenuInterfaceController.swift */; };
+		E826FE02277462E20005038C /* AutoConfigInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E826FE01277462E20005038C /* AutoConfigInterfaceController.swift */; };
 		E84F83C1244DC71800B36BA0 /* Dzikra.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E84F83C0244DC71800B36BA0 /* Dzikra.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E84F83C7244DC71800B36BA0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E84F83C5244DC71800B36BA0 /* Interface.storyboard */; };
 		E84F83C9244DC71A00B36BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E84F83C8244DC71A00B36BA0 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		E826FDFF277460410005038C /* SessionMenuInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMenuInterfaceController.swift; sourceTree = "<group>"; };
+		E826FE01277462E20005038C /* AutoConfigInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoConfigInterfaceController.swift; sourceTree = "<group>"; };
 		E84F83BC244DC71800B36BA0 /* Dzikra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dzikra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84F83C0244DC71800B36BA0 /* Dzikra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dzikra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84F83C6244DC71800B36BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				E8E4E470244FBB0B002121A1 /* DzikraInterfaceController.swift */,
 				E826FDFF277460410005038C /* SessionMenuInterfaceController.swift */,
+				E826FE01277462E20005038C /* AutoConfigInterfaceController.swift */,
 				E8E4E4DC24552F49002121A1 /* HomeInterfaceController.swift */,
 				E8E4E472244FBB38002121A1 /* CustomLimitInterfaceController.swift */,
 				E878694C2464F76B007A2111 /* DzikrItemSetRowController.swift */,
@@ -330,6 +333,7 @@
 				E8E4E46F244FBAED002121A1 /* DzikrSession.swift in Sources */,
 				E8D80CBD2458D9BE00EC1B26 /* Constants.swift in Sources */,
 				E878695524650276007A2111 /* UIColor Extension.swift in Sources */,
+				E826FE02277462E20005038C /* AutoConfigInterfaceController.swift in Sources */,
 				E8786951246500F4007A2111 /* ActiveSessionManager.swift in Sources */,
 				E8786953246501F9007A2111 /* ContinueLaterSessionManager.swift in Sources */,
 				E8E4E471244FBB0B002121A1 /* DzikraInterfaceController.swift in Sources */,
